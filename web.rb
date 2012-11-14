@@ -40,6 +40,7 @@ post '/render' do
 
   txt = params[:fountain]
   txt.gsub!(/\n/, '<br />')
+  txt = "<hr />\n" + txt
 
   @fountain_text = txt
   erb :pdf

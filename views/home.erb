@@ -1,1 +1,10 @@
-<p>This is <code>home.erb</code>. The bulk of the site goes here.</p>
+<img id="logo" src="logo.png" />
+<div id="pastebox">
+  <form action="/render" method="POST">
+    <textarea name="fountain" placeholder="Paste your Fountain screenplay here, get back a PDF, and scram." autofocus="autofocus"></textarea>
+    <button class="btn btn-large btn-block btn-info" id="smash">Smash Cut!</button>
+  </form>
+</div>
+
+<script src="jquery-1.8.2.min.js"></script>
+<script src="animate.js"></script>

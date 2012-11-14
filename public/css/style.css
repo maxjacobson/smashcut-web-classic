@@ -1,0 +1,30 @@
+html body {
+  padding: 0;
+  margin: 0; }
+
+#container {
+  font-family: "Courier",Serif;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+  #container a:visited {
+    color: #005ccd; }
+
+#logo {
+  width: 278px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  left: 10px; }
+
+#pastebox textarea {
+  resize: none;
+  width: 100%;
+  height: 400px;
+  padding: 5px;
+  font-family: "Courier",Serif;
+  font-size: 12pt; }
+
+#previewbutton {
+  margin: 20px 0 20px 0;
+  width: 40%; }

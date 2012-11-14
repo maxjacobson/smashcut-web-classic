@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'kramdown'
 
 enable :sessions
 set :dump_errors, false
@@ -31,6 +32,12 @@ get '/faq' do
   @title = "Smash Cut"
   @subtitle = "FAQs"
   erb :faq
+end
+
+post '/render' do
+  @title = "Smash Cut"
+  @subtitle = "Your PDF, rendered (coming soon)"
+  erb :pdf
 end
 
 get '/:page' do

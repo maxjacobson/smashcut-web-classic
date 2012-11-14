@@ -7,39 +7,40 @@ $round: 10px;
 $bg: #C4FDFF;
 
 html body {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
+  background-color: $bg;
 }
 #container {
-    font-family: "Courier",Serif;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    a:visited {
-        color: $lvisited;
-    }
+  font-family: "Courier",Serif;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  a:visited {
+    color: $lvisited;
+  }
 }
 #logo {
-    width: 278px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    position: relative;
-    left: 10px;
-//    opacity: 0;
+  width: 278px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  left: 10px;
+  opacity: 0;
 }
 
 #pastebox {
-    textarea {
-        resize: none;
-        width: 100%;
-        height: 400px;
-        padding: 5px;
-        font-family: "Courier",Serif;
-        font-size: 12pt;
-    }
+  textarea {
+    resize: none;
+    width: 100%;
+    height: 400px;
+    padding: 5px;
+    font-family: "Courier",Serif;
+    font-size: 12pt;
+  }
 }
 
 #previewbutton{
-    margin: 20px 0 20px 0;
-    width: 40%;
+  margin: 20px 0 20px 0;
+  width: 40%;
 }

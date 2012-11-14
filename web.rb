@@ -37,6 +37,11 @@ end
 post '/render' do
   @title = "Smash Cut"
   @subtitle = "Your PDF, rendered (coming soon)"
+
+  txt = params[:fountain]
+  txt.gsub!(/\n/, '<br />')
+
+  @fountain_text = txt
   erb :pdf
 end
 

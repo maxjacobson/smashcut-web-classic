@@ -1,14 +1,13 @@
 require 'sinatra'
 require 'kramdown'
+require 'prawn'
+require_relative 'helpers'
+require_relative 'fountain'
+require_relative 'fountain_helpers'
 
 enable :sessions
 set :dump_errors, false
 set :show_exceptions, false
-
-def cap_first (s)
-  # this code via stack overflow http://stackoverflow.com/questions/2646709/capitalize-only-first-character-of-string-and-leave-others-alone-rails
-  return s.slice(0,1).capitalize + s.slice(1..-1)
-end
 
 not_found do
   @title= "Smash Cut"
@@ -34,16 +33,17 @@ get '/faq' do
   erb :faq
 end
 
-post '/render' do
-  @title = "Smash Cut"
-  @subtitle = "Your PDF, rendered (coming soon)"
+post '/render.pdf' do
+  # @title = "Smash Cut"
+  # @subtitle = "Your PDF, rendered (coming soon)"
+  # @fountain_text = text_to_html(params[:fountain])
+  # erb :pdf
 
-  txt = params[:fountain]
-  txt.gsub!(/\n/, '<br />')
-  txt = "<hr />\n" + txt
+  content_type 'application/pdf'
+  pdf = fountain_to_pdf (params[:fountain])
+  pdf.render_file('output.pdf')
+  File.read('output.pdf')
 
-  @fountain_text = txt
-  erb :pdf
 end
 
 get '/:page' do

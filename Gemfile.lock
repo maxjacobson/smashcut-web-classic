@@ -24,6 +24,7 @@ GEM
     rack-flash (0.1.2)
       rack
     ruby-rc4 (0.1.5)
+    sass (3.2.1)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
@@ -42,5 +43,6 @@ DEPENDENCIES
   prawn
   progress_bar
   rack-flash
+  sass
   sinatra (= 1.1.0)
   thin

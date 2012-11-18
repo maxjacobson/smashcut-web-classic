@@ -1,34 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 <head>
   <meta charset="utf-8">
   <title><%= @title %> - <%= @subtitle %></title>
-  <meta name="viewport" content="user-scalable=0, initial-scale=1.0">
-  <meta name="HandheldFriendly" content="true" />
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link href="img/favicon.ico" type="image/x-icon" rel="icon">
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon.png">
 </head>
 <body>
-  <div class="row">
-    <div class="span6 offset3">
-      <h1><a href="/"><%= @title %></a></h1>
-      <h2><%= @subtitle %></h2>
+  
+  <a href="/"><img id="logo" src="img/logo.png" /></a>
+  <div id="container">
+    <h1><a href="/"><%= @title %></a></h1>
+    <h2><%= @subtitle %></h2>
 
-<%= yield %>
+  <%= yield %>
 
-    </div>
-    <div class="span3"></div>
+    <hr />
+    <p>A <a href="http://maxjacobson.net">Max Jacobson</a> joint. <a href="/faq">FAQ</a>.</p>
   </div>
-  <div class="row">
-    <div class="span6 offset3">
-      <hr />
-      <p>A <a href="http://maxjacobson.net">Max Jacobson</a> joint. <a href="/faq">FAQ</a>.</p>
-    </div>
-    <div class="span3"></div>
-  </div>
+  
   <script src="js/jquery-1.8.2.min.js"></script>
   <script src="js/animate.js"></script>
   <script src="js/garlic.min.js"></script>

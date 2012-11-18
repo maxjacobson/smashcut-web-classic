@@ -27,6 +27,17 @@ get '/' do
   erb :home
 end
 
+# maybe something like this... probably not necessary
+#
+# get '/stylesheets/:name.css' do
+#  content_type 'text/css', :charset => 'utf-8'
+#  scss(:"stylesheets/#{params[:name]}")
+# end
+
+get '/css/style.css' do
+  scss :style
+end
+
 get '/faq' do
   @title = "Smash Cut"
   @subtitle = "FAQs"
@@ -34,16 +45,22 @@ get '/faq' do
 end
 
 post '/render.pdf' do
-  # @title = "Smash Cut"
-  # @subtitle = "Your PDF, rendered (coming soon)"
-  # @fountain_text = text_to_html(params[:fountain])
-  # erb :pdf
-
-  content_type 'application/pdf'
-  pdf = fountain_to_pdf (params[:fountain])
-  pdf.render_file('output.pdf')
-  File.read('output.pdf')
-
+  # is it better to pop the file out or display it in-browser?
+  use_comments = params[:comments]
+  if use_comments
+    pdf = fountain_to_pdf (params[:fountain])#, "with comments")
+  else
+    pdf = fountain_to_pdf (params[:fountain])#, "without comments")
+  end
+  
+  if @movie_title.nil?
+    @movie_title = "movie-title"
+  end
+  
+  file_name = Time.now.strftime("%Y-%m-%d-%I%M%P-") + @movie_title + ".pdf"
+  pdf.render_file (file_name)
+  send_file file_name, :type => :pdf, :filename => file_name
+  redirect '/'
 end
 
 get '/:page' do

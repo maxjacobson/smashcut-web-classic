@@ -1,7 +1,12 @@
 $(document).ready(function(){
+  
+  var pagewidth = $('#html').width();
+  pagewidth -= 300;
+  pagewidth /= 2;
+  
     $('#logo').animate({
       opacity: 1,
-      left: '+=50px'
+      left: '+=' + pagewidth + 'px'
     }, 500, function() {});
     // $('#smash').click(function() {
     //     $('#logo').animate({

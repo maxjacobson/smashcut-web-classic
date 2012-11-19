@@ -69,9 +69,9 @@ end
 ###########################
 
 def fountain_to_pdf (fountain)#, comments)
-  if comments == "with comments"
-  elsif comments == "without comments"
-  end
+  # if comments == "with comments"
+  # elsif comments == "without comments"
+  # end
   tokens = fountain_to_tokens(fountain)
   puts "Tokens: #{tokens}"
   # pdf = tokens_to_pdf(tokens)

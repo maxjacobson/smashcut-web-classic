@@ -12,8 +12,12 @@ html body {
   background-color: $bg;
   font-family: "Courier",Serif;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
   a:visited {
     color: $lvisited;
   }
@@ -34,7 +38,7 @@ html body {
   margin-top: 20px;
   margin-bottom: 20px;
   position: relative;
-  left: 10px;
+  left: 0px;
   opacity: 0;
 }
 

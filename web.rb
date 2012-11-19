@@ -1,13 +1,15 @@
 require 'sinatra'
 require 'kramdown'
+require 'sass'
 require 'prawn'
 require_relative 'helpers'
 require_relative 'fountain'
 require_relative 'fountain_helpers'
 
 enable :sessions
-set :dump_errors, false
-set :show_exceptions, false
+
+# set :dump_errors, false
+# set :show_exceptions, false
 
 not_found do
   @title= "Smash Cut"

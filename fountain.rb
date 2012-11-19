@@ -79,6 +79,6 @@ def fountain_to_pdf (fountain)
 end
 
 def fountain_to_pdf_with_comments (fountain)
-  fountain = "with comments\n\n" + fountain
+  fountain = "Comments: true\n\n" + fountain
   fountain_to_pdf (fountain)
 end

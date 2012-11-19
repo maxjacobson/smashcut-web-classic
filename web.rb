@@ -8,6 +8,8 @@ require_relative 'fountain_helpers'
 
 enable :sessions
 
+# set :smart_quotes, true
+
 set :dump_errors, false
 set :show_exceptions, false
 

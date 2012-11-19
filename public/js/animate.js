@@ -9,6 +9,7 @@ $(document).ready(function(){
       left: '+=' + animateInit + 'px'
     }, 500, function() {});
     $(window).resize(function() {
+      console.log("Container width: " + $('#container').width());
       newWidth = $(window).width();
       if(newWidth < oldWidth) {
         diff = oldWidth - newWidth;

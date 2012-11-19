@@ -8,8 +8,8 @@ require_relative 'fountain_helpers'
 
 enable :sessions
 
-# set :dump_errors, false
-# set :show_exceptions, false
+set :dump_errors, false
+set :show_exceptions, false
 
 not_found do
   @title= "Smash Cut"
@@ -29,13 +29,6 @@ get '/' do
   erb :home
 end
 
-# maybe something like this... probably not necessary
-#
-# get '/stylesheets/:name.css' do
-#  content_type 'text/css', :charset => 'utf-8'
-#  scss(:"stylesheets/#{params[:name]}")
-# end
-
 get '/css/style.css' do
   scss :style
 end
@@ -46,20 +39,20 @@ get '/faq' do
   erb :faq
 end
 
-post '/render.pdf' do
-  # is it better to pop the file out or display it in-browser?
-  use_comments = params[:comments]
-  if use_comments
-    pdf = fountain_to_pdf (params[:fountain])#, "with comments")
+post '/render' do
+  if params[:comments] == "true"
+    pdf = fountain_to_pdf_with_comments (params[:fountain])
   else
-    pdf = fountain_to_pdf (params[:fountain])#, "without comments")
+    pdf = fountain_to_pdf (params[:fountain])
   end
-  
+
   if @movie_title.nil?
-    @movie_title = "movie-title"
+    @movie_title = ""
+  else
+    @movie_title = "-" + @movie_title
   end
   
-  file_name = Time.now.strftime("%Y-%m-%d-%I%M%P-") + @movie_title + ".pdf"
+  file_name = Time.now.strftime("%Y-%m-%d-%I%M%P") + @movie_title + ".pdf"
   pdf.render_file (file_name)
   send_file file_name, :type => :pdf, :filename => file_name
   redirect '/'

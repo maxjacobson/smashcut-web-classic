@@ -68,17 +68,17 @@ end
 
 ###########################
 
-def fountain_to_pdf (fountain)#, comments)
-  # if comments == "with comments"
-  # elsif comments == "without comments"
-  # end
+def fountain_to_pdf (fountain)
   tokens = fountain_to_tokens(fountain)
   puts "Tokens: #{tokens}"
   # pdf = tokens_to_pdf(tokens)
   # return pdf
-
   pdf = Prawn::Document.new
   pdf.text (fountain)
   return pdf
+end
 
+def fountain_to_pdf_with_comments (fountain)
+  fountain = "with comments\n\n" + fountain
+  fountain_to_pdf (fountain)
 end

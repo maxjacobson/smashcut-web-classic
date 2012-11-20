@@ -70,7 +70,7 @@ end
 
 def fountain_to_pdf (fountain)
   tokens = fountain_to_tokens(fountain)
-  puts "Tokens: #{tokens}"
+  #puts "Tokens: #{tokens}"
   # pdf = tokens_to_pdf(tokens)
   # return pdf
   pdf = Prawn::Document.new

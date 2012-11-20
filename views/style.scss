@@ -25,9 +25,6 @@ html body {
 
 #container {
   border-radius: 25px;
-  border-color: black;
-  border-width: 3px;
-  border-style: solid;
   background-color: white;
   padding: 25px;
   margin: 25px;
@@ -52,6 +49,10 @@ html body {
     height: 400px;
     font-family: "Courier",Serif;
     font-size: 12pt;
+    margin: 20px 0;
+  }
+  #smash {
+    margin-top: 20px;
   }
 }
 

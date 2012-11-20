@@ -54,7 +54,7 @@ post '/render' do
     @movie_title = "-" + @movie_title
   end
   
-  file_name = Time.now.strftime("%Y-%m-%d-%I%M%P") + @movie_title + ".pdf"
+  file_name = Time.now.utc.getlocal.strftime("%Y-%m-%d-%I%M%P") + @movie_title + ".pdf"
   pdf.render_file (file_name)
   send_file file_name, :type => :pdf, :filename => file_name
   redirect '/'

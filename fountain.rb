@@ -69,16 +69,20 @@ end
 ###########################
 
 def fountain_to_pdf (fountain)
-  tokens = fountain_to_tokens(fountain)
+  # tokens = fountain_to_tokens(fountain)
   #puts "Tokens: #{tokens}"
   # pdf = tokens_to_pdf(tokens)
   # return pdf
-  pdf = Prawn::Document.new
-  pdf.text (fountain)
+  pdf = Prawn::Document.new(:info => { :Title => "My Great Screenplay", :Author => "My Great Name", :Creator => "smashcutapp.com"})
+  pdf.font("Courier", :size => 12)
+  # pdf.repeat(2..3) do
+  #   draw_text "Page Number goes here", :at => [0,0]
+  # end
+  pdf.text(fountain)
   return pdf
 end
 
 def fountain_to_pdf_with_comments (fountain)
-  fountain = "Comments: true\n\n" + fountain
-  fountain_to_pdf (fountain)
+  fountain = "Comments: true\n" + fountain
+  fountain_to_pdf(fountain)
 end

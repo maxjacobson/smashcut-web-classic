@@ -43,9 +43,9 @@ end
 
 post '/render' do
   if params[:comments] == "true"
-    pdf = fountain_to_pdf_with_comments (params[:fountain])
+    pdf = fountain_to_pdf_with_comments(params[:fountain])
   else
-    pdf = fountain_to_pdf (params[:fountain])
+    pdf = fountain_to_pdf(params[:fountain])
   end
 
   if @movie_title.nil?
@@ -55,7 +55,7 @@ post '/render' do
   end
   
   file_name = Time.now.strftime("%Y-%m-%d-%I%M%P") + @movie_title + ".pdf"
-  pdf.render_file (file_name)
+  pdf.render_file(file_name)
   send_file file_name, :type => :pdf, :filename => file_name
   redirect '/'
 end

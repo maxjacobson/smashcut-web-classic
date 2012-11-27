@@ -10,6 +10,7 @@ def fountain_to_tokens_and_metadata (screenplay)
   
   lines = screenplay.split(/\n/)
   for i in 0...lines.length
+    lines[i].gsub!(/\r/, '')
     lines[i] = lines[i] + "\n"
   end
 

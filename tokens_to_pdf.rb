@@ -7,6 +7,11 @@ def tokens_to_prawn (tokens_and_metadata)
   tokens = tokens_and_metadata[:tokens]
   pdf = Prawn::Document.new(:info => { :Title => metadata[:title], :Author => metadata[:author], :Creator => "smashcutapp.com"})
   pdf.font("Courier", :size => 12)
+
+  metadata.each_value do |chunk|
+    pdf.text chunk.to_s
+  end
+
   tokens.each do |chunk|
     pdf.text chunk.to_s
   end

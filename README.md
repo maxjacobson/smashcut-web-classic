@@ -163,3 +163,7 @@ Poss.
 >What does it mean?
 
 What do you think it means?
+
+* * *
+
+here's an archive bit of `fountain.rb` which i'm no longer using:

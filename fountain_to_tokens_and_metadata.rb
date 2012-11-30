@@ -63,6 +63,11 @@ def tokenize (screenplay)
       # if the line is blank, just skip on over it
     elsif lines[i] =~ regex[:slug]
       tokens.push({:element => :slug, :data => lines[i]})
+    elsif lines[i] =~ /[A-Z]/ and lines[i] =~ /[a-z]/
+      # matches capital letters and lower case letters
+      # AFTER checking slug and transition
+      # means action... right?
+      tokens.push({:element => :action, :data => lines[i]})
     elsif lines[i] =~ regex[:pagebreak]
       tokens.push({:element => :pagebreak, :data => ""})
     elsif lines[i] =~ regex[:section]

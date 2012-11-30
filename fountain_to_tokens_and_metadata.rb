@@ -234,16 +234,16 @@ def tokenize (screenplay)
   return {:title_page => title_page, :tokens => tokens, :metadata => metadata}
 end
 
-if ARGV.first != nil
-  timer_start = Time.now
-  stuff = tokenize(File.open(ARGV.first).read)
-  # puts stuff.inspect
-  # puts "#{stuff[:title_page]}"
-  # puts "#{stuff[:metadata]}"
-  # puts "#{stuff[:tokens]}"
-  stuff[:tokens].each do |token|
-    puts token.inspect
-    puts
-  end
-  puts "Tokenized in #{Time.now - timer_start} seconds."
-end
+# if ARGV.first != nil
+#   timer_start = Time.now
+#   stuff = tokenize(File.open(ARGV.first).read)
+#   # puts stuff.inspect
+#   # puts "#{stuff[:title_page]}"
+#   # puts "#{stuff[:metadata]}"
+#   # puts "#{stuff[:tokens]}"
+#   stuff[:tokens].each do |token|
+#     puts token.inspect
+#     puts
+#   end
+#   puts "Tokenized in #{Time.now - timer_start} seconds."
+# end

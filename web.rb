@@ -40,9 +40,6 @@ end
 
 post '/render' do
 
-  # send the fountain screenplay, get a hash back
-  # the hash will have the title and the pdf in it
-
   if params[:comments] == "true"
     screenplay = "Comments: true\n" + params[:fountain]
   else

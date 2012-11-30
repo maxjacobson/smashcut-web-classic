@@ -1,5 +1,6 @@
 require 'prawn'
 require "prawn/measurement_extensions" # lets you use inches instead of points (1/72")
+require_relative 'tokens_to_pdf_helpers'
 
 def tokens_to_prawn (tokens_and_metadata)
   timer_start = Time.now
@@ -9,11 +10,64 @@ def tokens_to_prawn (tokens_and_metadata)
   pdf = Prawn::Document.new(:info => { :Title => metadata[:title], :Author => metadata[:author], :Creator => "smashcutapp.com"})
   pdf.font("Courier", :size => 12)
 
-  pdf.text "Metadata:"
-  metadata.each {|key, value| pdf.text "#{key}: #{value}"}
-  pdf.start_new_page
-  tokens.each do |chunk|
-    pdf.text chunk.to_s
+  if metadata[:has_title_page] == true
+    pdf.move_cursor_to 7.29.in
+    title_page[:center].each do |info|
+      pdf.bounding_box([determine_center(info),pdf.cursor], :width=> 4.3.in) do
+        pdf.text info
+        pdf.move_down 0.175.in
+      end
+    end
+    pdf.start_new_page
+  end
+
+  tokens.each do |token|
+    if token[:element] == :slug
+      if token[:has_emphasis] == true
+        line = add_emphasis(token[:data])
+      else
+        line = token[:data]
+      end
+      pdf.span(5.2.in, :position => :center) do
+        pdf.text line, :inline_format => true
+      end
+      pdf.move_down 0.175.in
+    elsif token[:element] == :action
+      if token[:has_emphasis] == true
+        line = add_emphasis(token[:data])
+      else
+        line = token[:data]
+      end
+      pdf.span(5.2.in, :position => :center) do
+        pdf.text line, :inline_format => true
+      end
+      pdf.move_down 0.175.in
+    elsif token[:element] == :dialog_block
+      token[:data].each do |chunk|
+        if chunk[:element] == :character
+          pdf.bounding_box([3.2.in,pdf.cursor], :width=> 4.3.in) do
+            pdf.text add_emphasis(chunk[:data]), :inline_format => true
+          end
+        elsif chunk[:element] == :paren
+          pdf.bounding_box([2.9.in,pdf.cursor], :width => 1.5.in) do
+            pdf.text add_emphasis(chunk[:data]), :inline_format => true
+          end
+        elsif chunk[:element] == :dialog
+          pdf.span(2.9.in, :position => :center) do
+            pdf.text add_emphasis(chunk[:data]), :inline_format => true
+          end
+        end
+      end
+      pdf.move_down 0.175.in
+    elsif token[:element] == :centered
+      line = token[:data]
+      line.gsub!(/(> *)|( *<)/, '')
+      line = add_emphasis(line)
+      pdf.bounding_box([determine_center(line),pdf.cursor], :width=> 4.3.in) do
+        pdf.text line, :inline_format => true
+      end
+      pdf.move_down 0.175.in
+    end
   end
 
   page_num_string = "<page>."

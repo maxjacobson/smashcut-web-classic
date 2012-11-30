@@ -48,10 +48,10 @@ post '/render' do
   else
     screenplay = params[:fountain]
   end
-  
-  tokens_and_metadata = fountain_to_tokens_and_metadata(screenplay)
+
+  tokens_and_metadata = tokenize(screenplay)
   pdf = tokens_to_prawn(tokens_and_metadata)
-  
+
   # get the movie title
   metadata = tokens_and_metadata[:metadata]
   if metadata[:title].nil?

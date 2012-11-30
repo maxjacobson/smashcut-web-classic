@@ -1,3 +1,5 @@
+## FAQs
+
 I've written a bunch of FAQ stuff but honestly it's not even close to done so it's mad premature.
 
 Pro tip: All the `Include comments` checkbox does (as of this writing) is add the line `Comments: true` and then two new lines to the very top of your screenplay. If you *always* want comments to be included, just add that to the metadata in your Fountain file and you won't need to check the box all the time.

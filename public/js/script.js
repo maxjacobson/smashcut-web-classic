@@ -13,7 +13,6 @@ $(document).ready(function(){
 
   //animation on window resize
   $(window).resize(function() {
-    console.log("Container width: " + $('#container').width());
     newWidth = $(window).width();
     if(newWidth < oldWidth) {
       diff = oldWidth - newWidth;
@@ -42,6 +41,15 @@ $(document).ready(function(){
   $("#clear").click(function() {
     $("#fountain").val("");
   });
+
+  // // attempt to use fountainjs within this sinatra app
+  // $("#fountainjstokenize").click(function() {
+  //   var fountain = require("./fountain");
+  //   var the_screenplay = $("#fountain").val();
+  //   var output = fountain(the_screenplay);
+  //   $("#fountain").val(output.html.script);
+  //   // console.log(output.html.script);
+  // });
 
 });
 

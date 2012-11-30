@@ -5,17 +5,17 @@ def tokens_to_prawn (tokens_and_metadata)
   timer_start = Time.now
   metadata = tokens_and_metadata[:metadata]
   tokens = tokens_and_metadata[:tokens]
+  title_page = tokens_and_metadata[:title_page]
   pdf = Prawn::Document.new(:info => { :Title => metadata[:title], :Author => metadata[:author], :Creator => "smashcutapp.com"})
   pdf.font("Courier", :size => 12)
 
-  metadata.each_value do |chunk|
-    pdf.text chunk.to_s
-  end
-
+  pdf.text "Metadata:"
+  metadata.each {|key, value| pdf.text "#{key}: #{value}"}
+  pdf.start_new_page
   tokens.each do |chunk|
     pdf.text chunk.to_s
   end
-  
+
   page_num_string = "<page>."
   page_num_options = {
     :at => [390, 740], # aka the top right. it isn't exactly perfectly positioned (TODO fix that). I wonder how it handles several-digit numbers
@@ -23,13 +23,13 @@ def tokens_to_prawn (tokens_and_metadata)
     :align => :right,
     :start_count_at => 2
   }
-  if metadata[:there_is_a_title_page] == true
+  if metadata[:has_title_page] == true
     page_num_options[:page_filter] = lambda{ |pg| pg > 2}
   else
     page_num_options[:page_filter] = lambda{ |pg| pg > 1}
   end
   pdf.number_pages page_num_string, page_num_options
-  
+
   puts "Prawnified in %.2f seconds." % (Time.now - timer_start)
   return pdf
 end

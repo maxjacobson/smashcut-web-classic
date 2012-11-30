@@ -63,6 +63,142 @@ def tokenize (screenplay)
       # if the line is blank, just skip on over it
     elsif lines[i] =~ regex[:slug]
       tokens.push({:element => :slug, :data => lines[i]})
+    elsif lines[i] =~ regex[:title_page]
+      if lines[i] =~ /title/im
+        temp_text = lines[i].gsub(/title: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:title] = temp_text
+        title_page[:center].push(temp_text)
+      elsif lines[i] =~ /credit/im
+        temp_text = lines[i].gsub(/credit: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:credit] = temp_text
+        title_page[:center].push(temp_text)
+      elsif lines[i] =~ /author/im
+        temp_text = lines[i].gsub(/author: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:author] = temp_text
+        title_page[:center].push(temp_text)
+      elsif lines[i] =~ /authors/im
+        temp_text = lines[i].gsub(/authors: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:authors] = temp_text
+        title_page[:center].push(temp_text)
+      elsif lines[i] =~ /source/im
+        temp_text = lines[i].gsub(/source: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:source] = temp_text
+        title_page[:lower_left].push(temp_text)
+      elsif lines[i] =~ /notes/im
+        temp_text = lines[i].gsub(/notes: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:notes] = temp_text
+        title_page[:lower_left].push(temp_text)
+      elsif lines[i] =~ /draft date/im
+        temp_text = lines[i].gsub(/draft date: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:draft_date] = temp_text
+        title_page[:lower_left].push(temp_text)
+      elsif lines[i] =~ /date/im
+        temp_text = lines[i].gsub(/date: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:date] = temp_text
+        title_page[:lower_left].push(temp_text)
+      elsif lines[i] =~ /contact/im
+        temp_text = lines[i].gsub(/contact: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:contact] = temp_text
+        title_page[:lower_left].push(temp_text)
+      elsif lines[i] =~ /copyright/im
+        temp_text = lines[i].gsub(/copyright: */im, '')
+        in_block = true
+        while in_block == true
+          if lines[i+1] =~ /\t/ or lines[i+1] =~ /   /
+            temp_text << "\n" + lines[i+1]
+            i += 1
+          else
+            in_block = false
+          end
+        end
+        metadata[:copyright] = temp_text
+        title_page[:lower_left].push(temp_text)
+      end
+    elsif lines[i] =~ regex[:comments_true]
+      metadata[:include_comments] = true
+    elsif lines[i] =~ regex[:television_true]
+      metadata[:television] = true
     elsif lines[i] =~ /[A-Z]/ and lines[i] =~ /[a-z]/
       # matches capital letters and lower case letters
       # AFTER checking slug and transition
@@ -123,52 +259,6 @@ def tokenize (screenplay)
       tokens.push({:element => :centered, :data => temp_centered_text})
     elsif lines[i] =~ regex[:transition]
       tokens.push({:element => :transition, :data => lines[i]})
-    elsif lines[i] =~ regex[:title_page]
-      if lines[i] =~ /title/im
-        the_title = lines[i].gsub(/title: */im, '')
-        metadata[:title] = the_title
-        title_page[:center].push(the_title)
-      elsif lines[i] =~ /credit/im
-        the_credit = lines[i].gsub(/credit: */im, '')
-        metadata[:credit] = the_credit
-        title_page[:center].push(the_credit)
-      elsif lines[i] =~ /author/im
-        the_author = lines[i].gsub(/author: */im, '')
-        metadata[:author] = the_author
-        title_page[:center].push(the_author)
-      elsif lines[i] =~ /authors/im
-        the_authors = lines[i].gsub(/authors: */im, '')
-        metadata[:authors] = the_authors
-        title_page[:center].push(the_authors)
-      elsif lines[i] =~ /source/im
-        the_source = lines[i].gsub(/source: */im, '')
-        metadata[:source] = the_source
-        title_page[:lower_left].push(the_source)
-      elsif lines[i] =~ /notes/im
-        the_notes = lines[i].gsub(/notes: */im, '')
-        metadata[:notes] = the_notes
-        title_page[:lower_left].push(the_notes)
-      elsif lines[i] =~ /draft date/im
-        the_draft_date = lines[i].gsub(/draft date: */im, '')
-        metadata[:draft_date] = the_draft_date
-        title_page[:lower_left].push(the_draft_date)
-      elsif lines[i] =~ /date/im
-        the_date = lines[i].gsub(/date: */im, '')
-        metadata[:date] = the_date
-        title_page[:lower_left].push(the_date)
-      elsif lines[i] =~ /contact/im
-        the_contact = lines[i].gsub(/contact: */im, '')
-        metadata[:contact] = the_contact
-        title_page[:lower_left].push(the_contact)
-      elsif lines[i] =~ /copyright/im
-        the_copyright = lines[i].gsub(/copyright: */im, '')
-        metadata[:copyright] = the_copyright
-        title_page[:lower_left].push(the_copyright)
-      end
-    elsif lines[i] =~ regex[:comments_true]
-      metadata[:include_comments] = true
-    elsif lines[i] =~ regex[:television_true]
-      metadata[:television] = true
     else
       tokens.push({:element => :action, :data => lines[i]})
     end

@@ -32,10 +32,10 @@ get '/css/style.css' do
   scss :style
 end
 
-get '/faq' do
+get '/about' do
   @title = "Smash Cut"
-  @subtitle = "FAQs"
-  erb :faq
+  @subtitle = "About"
+  erb :about
 end
 
 post '/render' do

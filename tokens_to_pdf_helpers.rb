@@ -37,17 +37,3 @@ def add_emphasis (line)
   end
   return line
 end
-
-def print_slug (slug)
-  print_action(slug) #is this ok? slugs follow the same formatting rules as action I think
-end
-
-def print_action (line)
-  if line[:has_emphasis] == true
-    line[:data] = add_emphasis(line[:data])
-  end
-  pdf.span(5.2.in, :position => :center) do
-    pdf.text line[:data], :inline_format => true
-  end
-  pdf.move_down 0.175.in
-end

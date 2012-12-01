@@ -3,6 +3,7 @@
 
 def tokenize (screenplay)
 
+  timer_start = Time.now
   the_time = Time.now
 
   tokens = Array.new # what the screenplay will become
@@ -326,6 +327,7 @@ def tokenize (screenplay)
   end
 
   # how'd we do?
+  puts "Tokenized in #{Time.now - timer_start} seconds"
   return {:title_page => title_page, :tokens => tokens, :metadata => metadata}
 end
 

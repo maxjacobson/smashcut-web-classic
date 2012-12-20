@@ -1,4 +1,4 @@
 *.pdf
-fountain-rb/
+*.html
 .DS_Store
 .sass-cache

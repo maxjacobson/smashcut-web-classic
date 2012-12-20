@@ -10,7 +10,7 @@ html body {
   padding: 0;
   margin: 0;
   background-color: $bg;
-  font-family: "Courier",Serif;
+  font-family: "Helvetica", Sans-Serif;
   width: 100%;
   a {
     text-decoration: none;
@@ -54,6 +54,14 @@ html body {
   #smash {
     margin-top: 20px;
   }
+}
+
+#specifyfilename {
+  margin: 5px 0 10px 0;
+}
+
+code {
+  font-family: "Monaco", Monospace;
 }
 
 hr {

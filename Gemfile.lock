@@ -25,9 +25,12 @@ GEM
       rack
     ruby-rc4 (0.1.5)
     sass (3.2.1)
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
+    smashcut (0.0.1)
     thin (1.4.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -44,5 +47,7 @@ DEPENDENCIES
   progress_bar
   rack-flash
   sass
+  shotgun
   sinatra (= 1.1.0)
+  smashcut
   thin

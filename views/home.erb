@@ -5,8 +5,9 @@
   <!-- <button class="btn btn-smash btn-block btn-large" id="fountainjstokenize">fountain.js tokenize</button> -->
   <form data-persist="garlic" action="/render" method="POST">
     <textarea name="fountain" id="fountain" placeholder="Paste your Fountain screenplay here, get back a PDF, and scram." autofocus="autofocus"></textarea>
+    <input name="filename" type="text" placeholder="Specify pdf filename (optional)" id="specifyfilename"><br />
     <label class="checkbox">
-      <input type="checkbox" name="comments" value="true"> Include comments, notes, boneyards, etc
+      <input name="comments" type="checkbox" value="true"> Include comments, notes, boneyards, etc
     </label>
     <button class="btn btn-smash btn-block btn-large" type="submit" id="smash">Smash Cut!</button>
   </form>

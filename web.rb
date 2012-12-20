@@ -2,7 +2,7 @@ require 'sinatra'
 require 'kramdown'
 require 'sass'
 require 'prawn'
-require 'smashcut'
+# require 'smashcut'
 
 enable :sessions
 

@@ -3,28 +3,59 @@
 <head>
   <meta charset="utf-8">
   <title><%= @title %> - <%= @subtitle %></title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/buttons.min.css" />
-  <link href="img/favicon.ico" type="image/x-icon" rel="icon">
-  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/buttons.min.css" />
+  <link rel="stylesheet" href="/css/alertify.core.css" />
+  <link rel="stylesheet" href="/css/alertify.bootstrap.css" />
+  <link type="image/x-icon" rel="icon" href="/img/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png">
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4982721-12']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
 </head>
 <!-- this onbeforeunload thing is a hack http://stackoverflow.com/questions/5426353/suppress-safaris-you-have-entered-text-warning -->
 <body onbeforeunload="">
 <!-- <body>   -->
   <a href="/"><img id="logo" src="img/logo.png" /></a>
   <div id="container">
-    <h1><a href="/"><%= @title %></a></h1>
+    <h1><a href="/" id="title"><%= @title %></a></h1>
+    <h2><%= @subtitle %></h2>
 
 <%= yield %>
 
     <hr />
-    <p>A <a href="http://maxjacobson.net">Max Jacobson</a> joint. <a href="/about">About page (FAQs and roadmap)</a>.</p>
+
+    <% if session[:screenplays].nil? == false %>
+    <div id="history">
+      <h3>History</h3>
+      <p>Not sure why I did this. Maybe it'll be interesting later.</p>
+      <ul>
+        <% session[:screenplays].each do |sp| %>
+          <li><%= sp[:title]%> by <%= sp[:author] %></li>
+        <% end %>
+      </ul>
+      <a href="/forget"><button class="btn btn-info" id="forget">Forget!</button></a>
+      <hr />
+    </div>
+    <% end %>
+
+    <div class="meta">
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li>By <a href="http://maxjacobson.net">Max Jacobson</a></li>
+      </ul>
+    </div>
   </div>
-
-  <script src="js/jquery-1.8.2.min.js"></script>
-  <script src="js/garlic.min.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/fountain.js"></script>
-
+  <script src="/js/require.js" data-main="/js/app"></script>
 </body>
 </html>

@@ -56,19 +56,57 @@ html body {
   }
 }
 
-#specifyfilename {
-  margin: 5px 0 10px 0;
+.options_box {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+  input[type=text] {
+    padding: 5px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: black;
+    width: 400px;
+    margin-bottom: 5px;
+  }
+}
+
+.meta {
+  margin: 10px 0;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline;
+    margin: 0;
+  }
+  li+li {
+    padding: 0 0 0 10px;
+  }
 }
 
 code {
+  background-color: yellow;
+  color: blue;
+  font-size: 80%;
   font-family: "Monaco", Monospace;
+  overflow: auto;
+}
+pre {
+  overflow: auto;
 }
 
 hr {
-  height: 5px;
+  height: 2px;
   color: black;
   background-color: black;
   border-radius: 5px;
-  width: 70%;
   margin-top: 50px;
 }

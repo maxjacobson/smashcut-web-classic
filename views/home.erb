@@ -1,14 +1,18 @@
-<h2>For your <a href="http://fountain.io">Fountain</a> screenplays.</h2>
-
 <div id="pastebox">
   <button class="btn" id="demo">Add demo screenplay</button> to see how it works. <button class="btn" id="clear">Clear box</button>
   <!-- <button class="btn btn-smash btn-block btn-large" id="fountainjstokenize">fountain.js tokenize</button> -->
-  <form data-persist="garlic" action="/render" method="POST">
+  <!-- data-persist="garlic"  <=== add that back into the first form tag if u want. taking it now for now-->
+  <button class="btn btn-smash btn-block btn-large" id="smash">Smash Cut!</button>
+  <form id="screenplay_form" action="/render" method="POST">
     <textarea name="fountain" id="fountain" placeholder="Paste your Fountain screenplay here, get back a PDF, and scram." autofocus="autofocus"></textarea>
-    <input name="filename" type="text" placeholder="Specify pdf filename (optional)" id="specifyfilename"><br />
-    <label class="checkbox">
-      <input name="comments" type="checkbox" value="true"> Include comments, notes, boneyards, etc
-    </label>
-    <button class="btn btn-smash btn-block btn-large" type="submit" id="smash">Smash Cut!</button>
+    <div class="options_box">
+      <h3>Options:</h3>
+      <ul>
+        <li><label>Specify filename: <input name="filename" type="text" placeholder="eg, casablanca.pdf (optional)" id="specify_filename"></label></li>
+        <li>Convert to: <label><input type="radio" name="file_format" value="pdf" checked="yes"/>PDF</label> <label><input type="radio" name="file_format" value="html"/>HTML</label></li>
+        <li>Comments: <label><input type="radio" name="comments" value="exclude" checked="yes"/>Exclude</label> <label><input type="radio" name="comments" value="include" />Include</label></li>
+        <li>Screenplay type: <label><input type="radio" name="medium" value="film" checked="yes"/>Film</label> <label><input type="radio" name="medium" value="tv" />Television</label></li>
+      </ul>
+    </div>
   </form>
 </div>

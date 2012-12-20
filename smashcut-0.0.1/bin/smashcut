@@ -1,0 +1,91 @@
+#!/usr/bin/env ruby
+
+# this is the executable for smashcut. the command line app
+
+require 'smashcut'
+
+current_version = "0.0.1"
+last_updated = Time.new(2012, 12, 20)
+
+filename = nil
+destination = nil
+type = :pdf
+
+if ARGV.length == 0
+  ARGV[0] = "-h"
+end
+
+# do things like
+# if ARGV.include both -html and -pdf just stop the program and give an error message saying that's a bad input???
+
+ARGV.each do |arg|
+  if arg =~ /^\-/
+    if arg =~ /\-v/
+      puts "Tip: you can get updates by running `gem install smashcut` again"
+      puts "smashcut v#{current_version}"
+      diff = Time.now - last_updated #=> in seconds
+      diff /= (60 * 60 * 24)
+      diff = diff.floor
+      puts "Last updated #{diff} day#{"s" if diff != 1} ago on #{last_updated.strftime("%Y-%m-%d")}"
+    elsif arg =~ /\-h$/
+      help_text = <<TEXT
+smashcut help
+
+Example commands:
+
+smashcut example.fountain # to convert from fountain to pdf
+smashcut example.fountain -html # to convert from fountain to HTML
+smashcut example.fountain example.pdf # to specify the file destination
+smashcut example.fountain example.html # to specify the file destination for html
+
+TEXT
+      puts help_text
+    elsif arg =~ /\-html$/
+      type = :html
+    else
+      puts "What is this flag? #{arg}"
+    end
+  else
+    if filename.nil?
+      filename = arg
+    elsif destination.nil?
+      destination = arg
+    else
+      puts "What is this? #{arg}"
+    end
+  end
+end
+
+if type == :pdf and destination =~ /.html$/
+  # even without using the -html flag, they have sufficiently signalled an interest in generating some html
+  type = :html
+end
+if type == :html and destination =~ /.pdf/
+  new_destination = destination.dup
+  new_destination.sub!(/.pdf/, '.html')
+  puts "Changing destination from #{destination} to #{new_destination} to match filetype"
+  destination = new_destination
+end
+
+if filename.nil?
+else
+  puts "Reading #{filename}"
+  text = File.open(filename).read
+  sp = Smashcut.new
+  sp.init(text, {:test => "test"})
+  if destination.nil?
+    puts "Destination filename not specified. Don't worry, we'll come up with something"
+    if type == :pdf
+      sp.print_pdf
+    elsif type == :html
+      sp.print_html
+    end
+  else
+    if type == :pdf
+      sp.print_pdf(destination)
+    elsif type == :html
+      sp.print_html(destination)
+    end
+  end
+end
+

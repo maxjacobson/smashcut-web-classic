@@ -47,11 +47,7 @@ html body {
   padding: 0; }
 .options_box input[type=text] {
   padding: 5px;
-  border: 1px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: black;
-  width: 400px;
+  width: 300px;
   margin-bottom: 5px; }
 
 .meta {
@@ -81,3 +77,9 @@ hr {
   background-color: black;
   border-radius: 5px;
   margin-top: 50px; }
+
+@media only screen and (max-width: 635px) {
+  #container {
+    width: 95%;
+    margin: 10px 0;
+    padding: 10px 5px; } }

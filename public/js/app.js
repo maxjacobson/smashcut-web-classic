@@ -4,7 +4,7 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
       // add demo text to fountain box
       $("#demo").click(function () {
         var current_text = $("#fountain").val();
-        if (current_text == "" || current_text == demo) {
+        if (current_text === "" || current_text == demo) {
           alertify.log( "Please dont judge my writing.", "info" );
           $("#fountain").val(demo);
         } else {
@@ -23,7 +23,7 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
       //clear all text from fountain box
       $("#clear").click(function () {
         var current_text = $("#fountain").val();
-        if (current_text == "") {
+        if (current_text === "") {
           alertify.error( "Already cleared!" );
         } else if (current_text == demo) { // eh, you can clear that w/o confirming
           $("#fountain").val("");
@@ -43,15 +43,14 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
     });
     $("#smash").click(function () {
       var current_text = $("#fountain").val();
-      if (current_text == "") {
+      if (current_text === "") {
         alertify.error("It's blank!");
       } else {
-        $("#screenplay_form").submit();
-        // fix this: you can hit enter in the filename box to avoid this logic
-        // you can submit blank pages if you just avoid clicking that button
-        // so bind to the whole submit event somehow http://api.jquery.com/submit/
+          $("#screenplay_form").submit();
+          // fix this: you can hit enter in the filename box to avoid this logic
+          // you can submit blank pages if you just avoid clicking that button
+          // so bind to the whole submit event somehow http://api.jquery.com/submit/
       }
     });
-
   });
 });

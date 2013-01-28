@@ -50,14 +50,12 @@ end
 get '/about' do
   @title = "Smash Cut"
   @subtitle = "About"
-  p session
-  p session[:screenplays]
   erb :about
 end
 
 get '/forget' do
   session.clear
-  redirect back
+  redirect '/'
 end
 
 post '/render' do

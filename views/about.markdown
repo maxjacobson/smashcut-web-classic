@@ -1,8 +1,8 @@
 (a draft written mostly on 2012-12-20)
 
-smashcut is for screenwriters to use when they have a screenplay in [fountain](http://fountain.io) and they want a screenplay in another format.
+This might be useful to you if you are a screenwriter who has a screenplay in the [fountain](http://fountain.io) format and would like to make a pdf out of it.
 
-This site is powered by the [smashcut](#) rubygem which I'm still working on and will soon be freely available. With the gem installed on your machine, you can do these conversions from the command line with the command `smashcut <yourscreenplay>.fountain`.
+This site is powered by the [smashcut](#) rubygem which I'm still working on and will soon make freely available. With the gem installed on your machine, you can do these conversions from the command line with the command `smashcut <yourscreenplay>.fountain`.
 
 ### Getting the gem
 
@@ -68,14 +68,16 @@ The reason these are the defaults is that I feel like this is what I would want 
 * Written in [Ruby](http://ruby-lang.org) with the [Sinatra](http://sinatrarb.com) DSL
 * Hosted by [Heroku](http://heroku.com)
 * Logo by [Amber Vittoria](http://ambervittoria.com)
- * Wiggly animation done by me with help from [jQuery](http://jquery.com)
+    * Wiggly animation done by me with help from [jQuery](http://jquery.com)
+* Fonts by [Google Web Fonts](http://google.com/webfonts)
 * Some of the other front end stuff in javascript, including these libraries:
-* Alerts powered by fabien-d's [Alertify.js](http://github.com/fabien-d/alertify.js)
-* With form persistence by [Garlic.js](http://garlicjs.org)
-* Buttons CSS by [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
+    * Alerts powered by fabien-d's [Alertify.js](http://github.com/fabien-d/alertify.js)
+    * With form persistence by [Garlic.js](http://garlicjs.org)
+    * Buttons CSS by [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 
 ### Privacy
-I promise not to read or share your screenplay. I genuinely just want this to be useful to people. This site is a [Sinatra][]-powered web app [^sinatra], and the way Sinatra works, I'm not sure exactly how to delete the files from the Heroku server after they're sent to you. See [this thread](http://stackoverflow.com/questions/2806053/how-can-i-delete-a-file-in-sinatra-after-it-has-been-sent-via-send-file) for someone else hounding after the same question. I *think* they're stored in a `/tmp` directory and expire automatically. I certainly don't know how to access them. It's on my todo list to learn more about this. If this concerns you, you can still safely use the gem locally from the command line.
+
+I promise not to read or share your screenplay. I genuinely just want this to be useful to people. This site is a [Sinatra][]-powered web app [^sinatra], and the way Sinatra works, I'm not sure exactly how to delete the files from the Heroku server after they're sent to you. See [this thread](http://stackoverflow.com/questions/2806053/how-can-i-delete-a-file-in-sinatra-after-it-has-been-sent-via-send-file) for someone else hounding after the same question. I *think* they're stored in a temp directory and expire automatically. *I* certainly don't know how to access them. It's on my todo list to learn more about this. If this concerns you, you can still safely use the gem locally from the command line.
 
 [Sinatra]: http://sinatra.rb
 [^sinatra]: which I'll also open source for transparency

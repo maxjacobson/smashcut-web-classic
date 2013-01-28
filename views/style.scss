@@ -5,14 +5,29 @@ $smash: #FF959E;
 $cut: #7ECDFF;
 $round: 10px;
 $bg: #C4FDFF;
+@font-face {
+  font-family: 'Arizonia';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arizonia'), local('Arizonia-Regular'), url(http://themes.googleusercontent.com/static/fonts/arizonia/v3/8Usm7f8XTsZinW2e-ZMd5XYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Text Me One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Text Me One'), local('TextMeOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/textmeone/v1/PqZhD5HyRPwtzI5fOKmj9LrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
 
 html body {
   padding: 0;
   margin: 0;
   background-color: $bg;
-  font-family: "Helvetica", Sans-Serif;
+  // font-family: 'Text Me One', sans-serif;
+  font-family: 'Helvetica', sans-serif;
   width: 100%;
   a {
+    // color: #EF001F;
     text-decoration: none;
   }
   a:hover {
@@ -21,6 +36,13 @@ html body {
   a:visited {
     color: $lvisited;
   }
+}
+
+h1 {
+  // font-family: 'Arizonia', cursive;
+  font-family: 'Courier', Monospace;
+  font-size: 6em;
+  margin: 0;
 }
 
 #container {

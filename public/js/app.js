@@ -1,6 +1,5 @@
 require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, alertify) {
   $(document).ready(function () {
-
     $.get('/fountain/demo.fountain', function(demo) {
       // add demo text to fountain box
       $("#demo").click(function () {

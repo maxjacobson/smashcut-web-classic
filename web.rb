@@ -27,7 +27,7 @@ get '/' do
   erb :home
 end
 
-get '/*.md' do
+get '/*.md' do # the heck is this waste of time for?
   splat = params[:splat][0]
   path = "/views/#{splat}.markdown"
   if File.exists?(path)

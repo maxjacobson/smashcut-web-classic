@@ -1,9 +1,15 @@
+<input type="file" id="load" style="display: none">
+
 <div id="pastebox">
-  <input type="file" id="load" style="display: none"> <button class="btn" id="load_button">Open</button> <button class="btn" id="clear">Clear</button> <button class="btn" id="demo">Demo</button> <div id="dropzone"></div>
   
+  <div class="btn-group">
+    <button class="btn" id="load_button">Open</button>
+    <button class="btn" id="clear">Clear</button>
+    <button class="btn" id="demo">Demo</button>
+    <button class="btn btn-info" id="smash">Smash Cut!</button>
+  </div>
   <!-- <button class="btn btn-smash btn-block btn-large" id="fountainjstokenize">fountain.js tokenize</button> -->
   <!-- data-persist="garlic"  <=== add that back into the first form tag if u want. taking it now for now-->
-  <button class="btn btn-smash btn-block btn-large" id="smash">Smash Cut!</button>
   <form id="screenplay_form" action="/render" method="POST">
     <textarea name="fountain" id="fountain" placeholder="Paste your Fountain screenplay here, get back a PDF, and scram." autofocus="autofocus"></textarea>
     <div class="options_box">

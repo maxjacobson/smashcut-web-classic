@@ -4,12 +4,6 @@
   font-weight: 400;
   src: local("Arizonia"), local("Arizonia-Regular"), url(http://themes.googleusercontent.com/static/fonts/arizonia/v3/8Usm7f8XTsZinW2e-ZMd5XYhjbSpvc47ee6xR_80Hnw.woff) format("woff"); }
 
-@font-face {
-  font-family: 'Text Me One';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Text Me One"), local("TextMeOne-Regular"), url(http://themes.googleusercontent.com/static/fonts/textmeone/v1/PqZhD5HyRPwtzI5fOKmj9LrIa-7acMAeDBVuclsi6Gc.woff) format("woff"); }
-
 html body {
   padding: 0;
   margin: 0;
@@ -24,7 +18,7 @@ html body {
     color: #005ccd; }
 
 h1 {
-  font-family: "Courier", Monospace;
+  font-family: "Arizonia", cursive;
   font-size: 6em;
   margin: 0; }
 
@@ -52,8 +46,6 @@ h1 {
   font-family: "Courier",Serif;
   font-size: 12pt;
   margin: 20px 0; }
-#pastebox #smash {
-  margin-top: 20px; }
 
 .options_box ul {
   list-style-type: none;

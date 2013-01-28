@@ -1,6 +1,7 @@
 require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, alertify) {
   $(document).ready(function () {
     $.get('/fountain/demo.txt', function(demo) {
+      
       // add demo text to fountain box
       $("#demo").click(function () {
         var current_text = $("#fountain").val();
@@ -41,11 +42,10 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
         }
       });
 
+      // the actual file input is hidden so this button is forwarding the click event to its invisible friend
       $("#load_button").on("click", function() {
-        // the actual file input is hidden so this button is forwarding the click event to its invisible friend
         $("#load").click();
       });
-
       $("#load").on("change", function() {
         var selected_file = $("#load").get(0).files[0];
         var name = selected_file.name;

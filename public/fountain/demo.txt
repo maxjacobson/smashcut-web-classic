@@ -5,6 +5,7 @@ Notes:
    Here's a demo fountain screenplay.
    Mess around with this or write your own,
    and then press SMASH CUT! above.
+   You can also open a file from your computer.
    If you're very unfamiliar with the syntax,
    I recommend heading to http://fountain.io/syntax
 

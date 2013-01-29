@@ -4,25 +4,28 @@
   font-weight: 400;
   src: local("Arizonia"), local("Arizonia-Regular"), url(http://themes.googleusercontent.com/static/fonts/arizonia/v3/8Usm7f8XTsZinW2e-ZMd5XYhjbSpvc47ee6xR_80Hnw.woff) format("woff"); }
 
-html body {
+html {
   padding: 0;
   margin: 0;
   background-color: #c4fdff;
   font-family: 'Helvetica', sans-serif;
   width: 100%; }
-  html body a {
-    text-decoration: none; }
-  html body a:hover {
-    text-decoration: underline; }
-  html body a:visited {
-    color: #005ccd; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+a:visited {
+  color: #005ccd; }
 
 h1 {
   font-family: 'Arizonia', cursive;
   font-size: 6em;
   margin: 0; }
 
-#container {
+body {
   border-radius: 25px;
   background-color: white;
   padding: 25px;
@@ -59,17 +62,17 @@ h1 {
   width: 300px;
   margin-bottom: 5px; }
 
-.meta {
+footer {
   margin: 10px 0; }
-  .meta ul {
+  footer ul {
     margin: 0;
     padding: 0; }
-  .meta li {
+  footer li {
     display: inline;
     margin: 0; }
-    .meta li:after {
+    footer li:after {
       content: "\a0 \a0 \a0 \a0 "; }
-  .meta li + li:before {
+  footer li + li:before {
     content: "\2731\a0 \a0 \a0 \a0 "; }
 
 code {
@@ -90,7 +93,7 @@ hr {
   margin-top: 50px; }
 
 @media only screen and (max-width: 635px) {
-  #container {
+  body {
     width: 95%;
     margin: 10px 0;
     padding: 10px 5px; } }

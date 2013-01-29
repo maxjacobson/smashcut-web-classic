@@ -14,21 +14,22 @@ $containerwidth: 635px;
   src: local('Arizonia'), local('Arizonia-Regular'), url(http://themes.googleusercontent.com/static/fonts/arizonia/v3/8Usm7f8XTsZinW2e-ZMd5XYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
 }
 
-html body {
+html {
   padding: 0;
   margin: 0;
   background-color: $bg;
   font-family: 'Helvetica', sans-serif;
   width: 100%;
-  a {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  a:visited {
-    color: $lvisited;
-  }
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: $lvisited;
 }
 
 h1 {
@@ -37,7 +38,7 @@ h1 {
   margin: 0;
 }
 
-#container {
+body {
   border-radius: 25px;
   background-color: white;
   padding: 25px;
@@ -84,7 +85,7 @@ h1 {
   }
 }
 
-.meta {
+footer {
   margin: 10px 0;
   ul {
     margin: 0;
@@ -124,7 +125,7 @@ hr {
   margin-top: 50px;
 }
 @media only screen and (max-width: 635px) {
-  #container {
+  body {
     width: 95%;
     margin: 10px 0;
     padding: 10px 5px;

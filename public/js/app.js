@@ -31,14 +31,17 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
         var current_text = $("#fountain").val();
         if (current_text === "") {
           alertify.error("Already cleared!");
+          $("#specify_filename").val("");
         } else if (current_text == demo) { // eh, you can clear that w/o confirming
           $("#fountain").val("");
+          $("#specify_filename").val("");
           alertify.log("Now get writing!", "nag");
           alertify.success("Cleared away demo!!");
         } else {
           var conf = confirm("You sure?");
           if (conf == true) {
             $("#fountain").val("");
+            $("#specify_filename").val("");
             alertify.success("Cleared!");
           } else {
             alertify.log("Clear canceled!", "canceled");
@@ -65,7 +68,7 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
           if (current_text === "" || current_text == demo) {
             reader.readAsText(selected_file);
           } else {
-            var conf = confirm("This will replace the current ext.");
+            var conf = confirm("This will replace the current text.");
             if (conf == true) {
               reader.readAsText(selected_file);
             } else {

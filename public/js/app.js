@@ -3,7 +3,7 @@
 require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, alertify) {
   $(document).ready(function () {
     if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-      // does this work? is it necessary? should I detect other stuff
+      // should I detect other stuff?
       $("#load_button").css("display", "none");
     }
 
@@ -16,15 +16,13 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
           alertify.log( "Please dont judge my writing.", "info" );
           $("#fountain").val(demo);
         } else {
-          alertify.confirm("This will replace the current text.", function (yep) {
-            if (yep) {
-              //after clicking OK
-              $("#fountain").val(demo);
-              alertify.log("Please dont judge my writing.", "info");
-            } else {
-              alertify.log("Demo canceled!", "canceled");
-            }
-          });
+          var conf = confirm("This will replace the current text.");
+          if (conf == true) {
+            $("#fountain").val(demo);
+            alertify.log("Please don't judge my writing.", "info");
+          } else {
+            alertify.log("Demo canceled!", "canceled");
+          }
         }
       });
 
@@ -38,14 +36,13 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
           alertify.log("Now get writing!", "nag");
           alertify.success("Cleared away demo!!");
         } else {
-          alertify.confirm("You sure?", function (yep) {
-            if (yep) {
-              $("#fountain").val("");
-              alertify.success("Cleared!");
-            } else {
-              alertify.log ("Clear canceled!", "canceled");
-            }
-          });
+          var conf = confirm("You sure?");
+          if (conf == true) {
+            $("#fountain").val("");
+            alertify.success("Cleared!");
+          } else {
+            alertify.log("Clear canceled!", "canceled");
+          }
         }
       });
 
@@ -68,13 +65,12 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
           if (current_text === "" || current_text == demo) {
             reader.readAsText(selected_file);
           } else {
-            alertify.confirm("This will replace the current text.", function (yep) {
-              if (yep) {
-                reader.readAsText(selected_file);
-              } else {
-                alertify.log ("Canceled!", "canceled");
-              }
-            });
+            var conf = confirm("This will replace the current ext.");
+            if (conf == true) {
+              reader.readAsText(selected_file);
+            } else {
+              alertify.log("Canceled!", "canceled");
+            }
           }
         } else {
           alertify.alert("Bad file extension. Please use .fountain");

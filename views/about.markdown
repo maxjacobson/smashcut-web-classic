@@ -65,7 +65,9 @@ The reason these are the defaults is that I feel like this is what I would want 
 
 ### About this site
 
+* The source code will be available on GitHub
 * Written in [Ruby](http://ruby-lang.org) with the [Sinatra](http://sinatrarb.com) DSL
+* The front-end stuff is JavaScript/jQuery and SASS/CSS
 * Hosted by [Heroku](http://heroku.com)
 * Logo by [Amber Vittoria](http://ambervittoria.com)
     * Wiggly animation done by me with help from [jQuery](http://jquery.com)
@@ -75,11 +77,10 @@ The reason these are the defaults is that I feel like this is what I would want 
     * With form persistence by [Garlic.js](http://garlicjs.org)
     * Buttons CSS by [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 
-### Privacy
+### Privacy [^btw]
 
-(Before I share the site publicly I'll make an effort to improve this situation)
+[^btw]: (Before I share the site publicly I'll make an effort to improve this situation)
 
-I promise not to read or share your screenplay. I genuinely just want this to be useful to people. This site is a [Sinatra][]-powered web app [^sinatra], and the way Sinatra works, I'm not sure exactly how to delete the files from the Heroku server after they're sent to you. See [this thread](http://stackoverflow.com/questions/2806053/how-can-i-delete-a-file-in-sinatra-after-it-has-been-sent-via-send-file) for someone else hounding after the same question. I *think* they're stored in a temp directory and expire automatically. *I* certainly don't know how to access them. It's on my todo list to learn more about this. If this concerns you, you can still safely use the gem locally from the command line.
+I promise not to read or share your screenplay. I genuinely just want this to be useful to people. This site is a Sinatra-powered web app, and the way Sinatra works, I'm not sure exactly how to delete the files from the Heroku server after they're sent to you. See [this thread](http://stackoverflow.com/questions/2806053/how-can-i-delete-a-file-in-sinatra-after-it-has-been-sent-via-send-file) for someone else hounding after the same question. I *think* they're stored in a temp directory and expire automatically. *I* certainly don't know how to access them. It's on my todo list to learn more about this. If this concerns you, you can still safely use the gem locally from the command line.
 
 [Sinatra]: http://sinatra.rb
-[^sinatra]: which I'll also open source for transparency

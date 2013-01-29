@@ -60,7 +60,7 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
         var reader = new FileReader();
         reader.onload = function(event) {
           $("#fountain").val(event.target.result);
-          $("#specify_filename").val(name.replace(/\..+$/, "")); // hmm
+          $("#specify_filename").val(name.replace(/\..+$/, "")); // removes file extension from filename and puts in the little box... should it?
           alertify.log ("Loaded " + name);
         };
         if (name.match(pattern)) {

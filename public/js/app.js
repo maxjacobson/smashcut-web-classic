@@ -2,6 +2,12 @@
 
 require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, alertify) {
   $(document).ready(function () {
+    if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+      // does this work? is it necessary? should I detect other stuff too?
+      $("#load_button").css("display", "none");
+    }
+
+
     $.get('/fountain/demo.txt', function(demo) {
 
       // add demo text to fountain box

@@ -8,7 +8,7 @@ html body {
   padding: 0;
   margin: 0;
   background-color: #c4fdff;
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Helvetica', sans-serif;
   width: 100%; }
   html body a {
     text-decoration: none; }
@@ -18,7 +18,7 @@ html body {
     color: #005ccd; }
 
 h1 {
-  font-family: "Arizonia", cursive;
+  font-family: 'Arizonia', cursive;
   font-size: 6em;
   margin: 0; }
 

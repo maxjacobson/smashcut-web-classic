@@ -1,13 +1,11 @@
 // welcome to hell, kid
 
-if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-  // does this work? is it necessary? should I detect other stuff
-  $("#load_button").css("display", "none");
-}
-
-
 require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, alertify) {
   $(document).ready(function () {
+    if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+      // does this work? is it necessary? should I detect other stuff
+      $("#load_button").css("display", "none");
+    }
 
     $.get('/fountain/demo.txt', function(demo) {
 

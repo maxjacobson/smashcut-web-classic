@@ -23,3 +23,10 @@
     </div>
   </form>
 </div>
+
+<script>
+  if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+    // does this work? is it necessary? should I detect other stuff too?
+    $("#load_button").css("display", "none");
+  }
+</script>

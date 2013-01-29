@@ -91,9 +91,15 @@ h1 {
   li {
     display: inline;
     margin: 0;
+    &:after {
+      content: "\a0 \a0 \a0 \a0 ";
+    }
   }
   li+li {
-    padding: 0 0 0 10px;
+    // padding: 0 0 0 10px;
+    &:before {
+      content: "\2731\a0 \a0 \a0 \a0 ";
+    }
   }
 }
 

@@ -67,8 +67,10 @@ h1 {
   .meta li {
     display: inline;
     margin: 0; }
-  .meta li + li {
-    padding: 0 0 0 10px; }
+    .meta li:after {
+      content: "\a0 \a0 \a0 \a0 "; }
+  .meta li + li:before {
+    content: "\2731\a0 \a0 \a0 \a0 "; }
 
 code {
   background-color: yellow;

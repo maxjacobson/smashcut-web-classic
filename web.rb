@@ -53,6 +53,12 @@ get '/about' do
   erb :about
 end
 
+get '/changelog' do
+  @title = "Smash Cut"
+  @subtitle = "Changelog"
+  erb :changelog
+end
+
 get '/forget' do
   session.clear
   redirect '/'

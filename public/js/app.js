@@ -8,10 +8,16 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
     }
 
     if ($(document).width() <= 480) {
-      $("button").addClass("btn-small");
-    } else if ($(document).width() <= 320) {
       $("button").addClass("btn-mini");
     }
+    $(window).resize(function() {
+      var current_width = $(window).width();
+      if (current_width <= 480) {
+        $("button").addClass("btn-mini");
+      } else {
+        $("button").removeClass("btn-mini");
+      }
+    });
 
     $.get('/fountain/demo.txt', function(demo) {
 

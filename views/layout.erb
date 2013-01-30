@@ -34,6 +34,11 @@
     <div id="header_text">
       <h1><a href="/" id="title"><%= @title %></a></h1>
       <h2><%= @subtitle %></h2>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/changelog">Changelog</a></li>
+        <li>By <a href="http://www.maxjacobson.net">Max Jacobson</a></li>
+      </ul>
     </div>
   </header>
 
@@ -54,15 +59,7 @@
     <hr />
   </div>
   <% end %>
-
-  <footer>
-    <ul>
-      <li><a href="/about">About</a></li>
-      <li><a href="/changelog">Changelog</a></li>
-      <li>By <a href="http://www.maxjacobson.net">Max Jacobson</a></li>
-    </ul>
-  </footer>
-
+  
   <script src="/js/require.js" data-main="/js/app"></script>
 </body>
 </html>

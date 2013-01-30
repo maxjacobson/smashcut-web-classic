@@ -17,13 +17,13 @@ $purple: #7C5CFF;
 }
 
 html {
-  background-color: $purple; // applies to footer
   color: white;
   font-family: 'Helvetica', sans-serif;
   width: 100%;
 }
 
 body {
+  margin-bottom: 25px;
 }
 
 
@@ -34,11 +34,27 @@ header {
   }
   font-weight: bold;
   background-color: #4C7945;
-  // padding: 25px;
   color: white;
   padding: 25px;
   h1, h2 {
     margin: 0 auto;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+  }
+  li {
+    display: inline;
+    margin: 0;
+    &:after {
+      content: "\a0 \a0 \a0 \a0 ";
+    }
+  }
+  li+li {
+    &:before {
+      content: "\2731\a0 \a0 \a0 \a0 ";
+    }
   }
 }
 
@@ -51,35 +67,8 @@ header {
   background-color: white;
   color: black;
   border-top: 1px black dotted;
-  border-bottom: 1px black dotted;
 }
 
-footer {
-  width: 500px;
-  margin: 0 auto;
-  a {
-    color: white;
-  }
-  // margin: 10px auto;
-  padding: 25px;
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  li {
-    display: inline;
-    margin: 0;
-    &:after {
-      content: "\a0 \a0 \a0 \a0 ";
-    }
-  }
-  li+li {
-    // padding: 0 0 0 10px;
-    &:before {
-      content: "\2731\a0 \a0 \a0 \a0 ";
-    }
-  }
-}
 
 article {
   width: 500px;
@@ -162,6 +151,25 @@ pre {
   }
   #app {
     width: 95%;
+  }
+  header {
+    padding: 5px;
+    ul {
+      padding-top: 5px;
+    }
+    li {
+      display: inline;
+      margin: 0;
+      &:after {
+        content: "\a0 \a0 ";
+      }
+    }
+    li+li {
+      // padding: 0 0 0 10px;
+      &:before {
+        content: "\2731\a0 \a0 ";
+      }
+    }
   }
 }
 

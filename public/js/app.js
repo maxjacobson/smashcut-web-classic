@@ -1,7 +1,8 @@
 // welcome to hell, kid
 
-require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, alertify) {
+require(['jquery', 'alertify.min', 'autosize', 'animate_logo', 'garlic.min'], function ($, alertify) {
   $(document).ready(function () {
+    $("#fountain").autosize({append: "\n"});
     if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
       // should I detect other stuff?
       $("#load_button").css("display", "none");
@@ -23,14 +24,17 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
 
       // add demo text to fountain box
       $("#demo").click(function () {
+        var insert_demo = function() {
+          $("#fountain").val(demo);
+        };
         var current_text = $("#fountain").val();
         if (current_text === "" || current_text == demo) {
           alertify.log( "Please dont judge my writing.", "info" );
-          $("#fountain").val(demo);
+          insert_demo();
         } else {
           var conf = confirm("This will replace the current text.");
           if (conf === true) {
-            $("#fountain").val(demo);
+            insert_demo();
             alertify.log("Please don't judge my writing.", "info");
           } else {
             alertify.log("Demo canceled!", "canceled");
@@ -44,9 +48,11 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
         if (current_text === "") {
           alertify.error("Already cleared!");
           $("#specify_filename").val("");
+          $("#fountain").css("height", "350px");
         } else if (current_text == demo) { // eh, you can clear that w/o confirming
           $("#fountain").val("");
           $("#specify_filename").val("");
+          $("#fountain").css("height", "350px");
           alertify.log("Now get writing!", "nag");
           alertify.success("Cleared away demo!!");
         } else {
@@ -54,6 +60,7 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
           if (conf === true) {
             $("#fountain").val("");
             $("#specify_filename").val("");
+            $("#fountain").css("height", "350px");
             alertify.success("Cleared!");
           } else {
             alertify.log("Clear canceled!", "canceled");
@@ -61,10 +68,29 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
         }
       });
 
-      // the actual file input is hidden so this button is forwarding the click event to its invisible friend
+      
+
+      // will submit the form
+      $("#smash").click(function () {
+        var current_text = $("#fountain").val();
+        if (current_text === "") {
+          alertify.error("It's blank!");
+        } else {
+          alertify.error("Processing doesn't work yet");
+          // alertify.log("Processing...", "thinking");
+          // $("#screenplay_form").submit();
+          // fix this: you can hit enter in the filename box to avoid this logic
+          // you can submit blank pages if you just avoid clicking that button
+          // so bind to the whole submit event somehow http://api.jquery.com/submit/
+        }
+      });
+
+      // the actual file input is hidden so this button is
+      //forwarding the click event to its invisible friend
       $("#load_button").on("click", function() {
         $("#load").click();
       });
+      // when a file is selected, it's loaded into the textbox
       $("#load").on("change", function() {
         var selected_file = $("#load").get(0).files[0];
         var name = selected_file.name;
@@ -90,22 +116,9 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
         } else {
           alert("Bad file extension. Please use .fountain");
         }
-
       });
 
-      $("#smash").click(function () {
-        var current_text = $("#fountain").val();
-        if (current_text === "") {
-          alertify.error("It's blank!");
-        } else {
-          alertify.error("Processing doesn't work yet");
-          // alertify.log("Processing...", "thinking");
-          // $("#screenplay_form").submit();
-          // fix this: you can hit enter in the filename box to avoid this logic
-          // you can submit blank pages if you just avoid clicking that button
-          // so bind to the whole submit event somehow http://api.jquery.com/submit/
-        }
-      });
+
     });
   });
 });

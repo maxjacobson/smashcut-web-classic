@@ -69,16 +69,22 @@ a {
   height: 350px;
   font-family: "Courier",Serif;
   font-size: 12pt;
-  margin: 20px auto; }
+  margin: 20px auto;
+  vertical-align: top;
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  transition: height 0.2s; }
 
-#options ul {
-  list-style-type: none; }
-#options li {
-  margin-top: 5px; }
-#options input[type=text] {
-  padding: 5px;
-  width: 50%;
-  margin-bottom: 5px; }
+#options {
+  margin: 10px 0; }
+  #options ul {
+    list-style-type: none; }
+  #options li {
+    margin-top: 5px; }
+  #options input[type=text] {
+    padding: 5px;
+    width: 50%;
+    margin-bottom: 5px; }
 
 code {
   background-color: yellow;

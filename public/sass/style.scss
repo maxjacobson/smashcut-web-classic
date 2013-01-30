@@ -117,9 +117,17 @@ a {
   font-family: "Courier",Serif;
   font-size: 12pt;
   margin: 20px auto;
+
+  // for the autosize animation
+  vertical-align: top;
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  transition: height 0.2s;
 }
 
+
 #options {
+  margin: 10px 0;
   ul {
     list-style-type: none;
   }

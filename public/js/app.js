@@ -7,6 +7,12 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
       $("#load_button").css("display", "none");
     }
 
+    if ($(document).width() <= 480) {
+      $("button").addClass("btn-small");
+    } else if ($(document).width() <= 320) {
+      $("button").addClass("btn-mini");
+    }
+
     $.get('/fountain/demo.txt', function(demo) {
 
       // add demo text to fountain box

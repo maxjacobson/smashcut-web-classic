@@ -1,6 +1,6 @@
 <input type="file" id="load" style="display: none">
 
-<div id="pastebox">
+<div id="app">
 
   <div class="btn-group">
     <button class="btn" id="load_button">Open</button>
@@ -8,9 +8,10 @@
     <button class="btn" id="demo">Example</button>
     <button class="btn btn-info" id="smash">Smash Cut!</button>
   </div>
+
   <form id="screenplay_form" action="/render" method="POST">
     <textarea name="fountain" id="fountain" placeholder="Paste your Fountain screenplay here, get back a PDF, and scram." autofocus="autofocus"></textarea>
-    <div class="options_box">
+    <div id="options">
       <h3>Options:</h3>
       <ul>
         <li><label>Specify filename: <input name="filename" type="text" placeholder="eg, casablanca.pdf (optional)" id="specify_filename"></label></li>

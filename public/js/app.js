@@ -8,14 +8,14 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
     }
 
     if ($(document).width() <= 480) {
-      $("button").addClass("btn-mini");
+      $("button").addClass("btn-small");
     }
     $(window).resize(function() {
       var current_width = $(window).width();
       if (current_width <= 480) {
-        $("button").addClass("btn-mini");
+        $("button").addClass("btn-small");
       } else {
-        $("button").removeClass("btn-mini");
+        $("button").removeClass("btn-small");
       }
     });
 

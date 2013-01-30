@@ -25,6 +25,10 @@ header {
   header h1, header h2 {
     margin: 0 auto; }
 
+#header_text {
+  width: 500px;
+  margin: 0 auto; }
+
 .yield {
   background-color: white;
   color: black;
@@ -32,6 +36,8 @@ header {
   border-bottom: 1px black dotted; }
 
 footer {
+  width: 500px;
+  margin: 0 auto;
   padding: 25px; }
   footer a {
     color: white; }
@@ -48,7 +54,7 @@ footer {
 
 article {
   width: 500px;
-  margin: 0 auto; }
+  margin: 10px auto; }
 
 h1 {
   font-size: 6em; }
@@ -61,14 +67,6 @@ a {
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
-
-#logo {
-  width: 278px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  position: relative;
-  left: 0px;
-  opacity: 0; }
 
 #app {
   width: 85%;
@@ -105,7 +103,7 @@ pre {
   overflow: auto; }
 
 @media only screen and (max-width: 500px) {
-  article {
+  article, #header_text, footer {
     width: 95%;
     padding: 3px; }
 

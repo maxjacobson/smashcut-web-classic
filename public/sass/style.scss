@@ -42,6 +42,11 @@ header {
   }
 }
 
+#header_text {
+  width: 500px;
+  margin: 0 auto;
+}
+
 .yield {
   background-color: white;
   color: black;
@@ -50,6 +55,8 @@ header {
 }
 
 footer {
+  width: 500px;
+  margin: 0 auto;
   a {
     color: white;
   }
@@ -76,7 +83,7 @@ footer {
 
 article {
   width: 500px;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 h1 {
@@ -95,14 +102,14 @@ a {
   }
 }
 
-#logo {
-  width: 278px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  position: relative;
-  left: 0px;
-  opacity: 0;
-}
+// #logo {
+//   width: 278px;
+//   margin: 20px 0 0 0;
+//   position: relative;
+//   left: 0px;
+//   opacity: 0;
+// }
+
 
 #app {
   width: 85%;
@@ -149,7 +156,7 @@ pre {
 }
 
 @media only screen and (max-width: 500px) {
-  article {
+  article, #header_text, footer {
     width: 95%;
     padding: 3px;
   }

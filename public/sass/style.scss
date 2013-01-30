@@ -35,7 +35,6 @@ body {
 
 header {
   font-family: 'Lato', sans-serif;
-  border-bottom: 5px black dashed;
   font-weight: bold;
   background-color: #4C7945;
   // padding: 25px;
@@ -50,10 +49,12 @@ header {
   background-color: white;
   color: black;
   padding: 25px;
+  border-top: 1px black dotted;
+  border-bottom: 1px black dotted;
 }
 
 footer {
-  border-top: 5px black dashed;
+
   // margin: 10px auto;
   padding: 25px;
   ul {

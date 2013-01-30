@@ -22,7 +22,6 @@ html {
 
 header {
   font-family: 'Lato', sans-serif;
-  border-bottom: 5px black dashed;
   font-weight: bold;
   background-color: #4C7945;
   color: white;
@@ -33,10 +32,11 @@ header {
 .yield {
   background-color: white;
   color: black;
-  padding: 25px; }
+  padding: 25px;
+  border-top: 1px black dotted;
+  border-bottom: 1px black dotted; }
 
 footer {
-  border-top: 5px black dashed;
   padding: 25px; }
   footer ul {
     margin: 0;

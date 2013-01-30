@@ -102,6 +102,10 @@ pre {
   overflow: auto; }
 
 @media only screen and (max-width: 500px) {
+  #fountain {
+    width: 100%;
+    margin: 10px 0; }
+
   article {
     width: 100%;
     padding: 3px; } }

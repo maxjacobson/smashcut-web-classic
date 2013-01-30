@@ -27,12 +27,14 @@
 <body onbeforeunload="">
 <!-- <body>   -->
   <!-- <a href="/"><img id="logo" src="/img/logo.png" /></a> -->
-  <h1><a href="/" id="title"><%= @title %></a></h1>
-  <h2><%= @subtitle %></h2>
+  <header>
+    <h1><a href="/" id="title"><%= @title %></a></h1>
+    <h2><%= @subtitle %></h2>  
+  </header>
 
-<%= yield %>
-
-  <hr />
+<div class="yield">
+<%= yield %>  
+</div>
 
   <% if session[:screenplays].nil? == false %>
   <div id="history">

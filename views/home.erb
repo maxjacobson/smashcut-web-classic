@@ -8,8 +8,6 @@
     <button class="btn" id="demo">Example</button>
     <button class="btn btn-info" id="smash">Smash Cut!</button>
   </div>
-  <!-- <button class="btn btn-smash btn-block btn-large" id="fountainjstokenize">fountain.js tokenize</button> -->
-  <!-- data-persist="garlic"  <=== add that back into the first form tag if u want. taking it now for now-->
   <form id="screenplay_form" action="/render" method="POST">
     <textarea name="fountain" id="fountain" placeholder="Paste your Fountain screenplay here, get back a PDF, and scram." autofocus="autofocus"></textarea>
     <div class="options_box">
@@ -17,17 +15,17 @@
       <ul>
         <li><label>Specify filename: <input name="filename" type="text" placeholder="eg, casablanca.pdf (optional)" id="specify_filename"></label></li>
         <li>Convert to:
-          <label><input type="radio" name="file_format" value="pdf" checked="yes"/>PDF</label>
-          <label><input type="radio" name="file_format" value="html"/>HTML</label>
+          <label><input type="radio" name="file_format" value="pdf" checked="yes"/> PDF</label>
+          <label><input type="radio" name="file_format" value="html"/> HTML</label>
         </li>
         <li>Comments:
-          <label><input type="radio" name="comments" value="exclude" checked="yes"/>Exclude</label>
-          <label><input type="radio" name="comments" value="include" />Include</label>
+          <label><input type="radio" name="comments" value="exclude" checked="yes"/> Exclude</label>
+          <label><input type="radio" name="comments" value="include" /> Include</label>
         </li>
         <li>Screenplay type:
-          <label><input type="radio" name="medium" value="film" checked="yes"/>Film</label>
-          <label><input type="radio" name="medium" value="tv" />Television</label>
-          <label><input type="radio" name="medium" value="musical" />Musical</label>
+          <label><input type="radio" name="medium" value="film" checked="yes"/> Film</label>
+          <label><input type="radio" name="medium" value="tv" /> Television</label>
+          <label><input type="radio" name="medium" value="musical" /> Musical</label>
         </li>
       </ul>
     </div>

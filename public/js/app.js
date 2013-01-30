@@ -17,7 +17,7 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
           $("#fountain").val(demo);
         } else {
           var conf = confirm("This will replace the current text.");
-          if (conf == true) {
+          if (conf === true) {
             $("#fountain").val(demo);
             alertify.log("Please don't judge my writing.", "info");
           } else {
@@ -39,7 +39,7 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
           alertify.success("Cleared away demo!!");
         } else {
           var conf = confirm("You sure?");
-          if (conf == true) {
+          if (conf === true) {
             $("#fountain").val("");
             $("#specify_filename").val("");
             alertify.success("Cleared!");
@@ -69,14 +69,14 @@ require(['jquery', 'alertify.min', 'animate_logo', 'garlic.min'], function ($, a
             reader.readAsText(selected_file);
           } else {
             var conf = confirm("This will replace the current text.");
-            if (conf == true) {
+            if (conf === true) {
               reader.readAsText(selected_file);
             } else {
               alertify.log("Canceled!", "canceled");
             }
           }
         } else {
-          alertify.alert("Bad file extension. Please use .fountain");
+          alert("Bad file extension. Please use .fountain");
         }
 
       });

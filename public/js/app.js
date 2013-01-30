@@ -2,7 +2,10 @@
 
 require(['jquery', 'alertify.min', 'autosize', 'animate_logo', 'garlic.min'], function ($, alertify) {
   $(document).ready(function () {
+
+    // uses a plugin to autosize the textarea as it gets populated
     $("#fountain").autosize({append: "\n"});
+
     if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
       // should I detect other stuff?
       $("#load_button").css("display", "none");
@@ -25,7 +28,7 @@ require(['jquery', 'alertify.min', 'autosize', 'animate_logo', 'garlic.min'], fu
       // add demo text to fountain box
       $("#demo").click(function () {
         var insert_demo = function() {
-          $("#fountain").val(demo);
+          $("#fountain").val(demo).trigger('autosize');
         };
         var current_text = $("#fountain").val();
         if (current_text === "" || current_text == demo) {
@@ -50,17 +53,17 @@ require(['jquery', 'alertify.min', 'autosize', 'animate_logo', 'garlic.min'], fu
           $("#specify_filename").val("");
           $("#fountain").css("height", "350px");
         } else if (current_text == demo) { // eh, you can clear that w/o confirming
-          $("#fountain").val("");
+          $("#fountain").val("").trigger('autosize');
           $("#specify_filename").val("");
-          $("#fountain").css("height", "350px");
+          // $("#fountain").css("height", "350px");
           alertify.log("Now get writing!", "nag");
           alertify.success("Cleared away demo!!");
         } else {
           var conf = confirm("You sure?");
           if (conf === true) {
-            $("#fountain").val("");
+            $("#fountain").val("").trigger('autosize');
             $("#specify_filename").val("");
-            $("#fountain").css("height", "350px");
+            // $("#fountain").css("height", "350px");
             alertify.success("Cleared!");
           } else {
             alertify.log("Clear canceled!", "canceled");
@@ -68,7 +71,7 @@ require(['jquery', 'alertify.min', 'autosize', 'animate_logo', 'garlic.min'], fu
         }
       });
 
-      
+
 
       // will submit the form
       $("#smash").click(function () {
@@ -97,7 +100,7 @@ require(['jquery', 'alertify.min', 'autosize', 'animate_logo', 'garlic.min'], fu
         var pattern = /(\.fountain$)|(\.fou$)|(\.txt$)|(\.spmd$)|(\.md$)|(\.markdown$)/;
         var reader = new FileReader();
         reader.onload = function(event) {
-          $("#fountain").val(event.target.result);
+          $("#fountain").val(event.target.result).trigger('autosize');
           $("#specify_filename").val(name.replace(/\..+$/, "")); // removes file extension from filename and puts in the little box... should it?
           alertify.log ("Loaded " + name);
         };

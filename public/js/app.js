@@ -1,6 +1,6 @@
 // welcome to hell, kid
 
-require(['jquery', 'autosize', 'animate_logo', 'garlic.min'], function ($, autosize) {
+require(['jquery', 'autosize'], function ($, autosize) {
   $(document).ready(function () {
 
     // uses a plugin to autosize the textarea as it gets populated
@@ -16,6 +16,7 @@ require(['jquery', 'autosize', 'animate_logo', 'garlic.min'], function ($, autos
     } else if ($(document).width() <= 480) {
       $("button").addClass("btn-small");
     }
+
     $(window).resize(function() {
       var current_width = $(window).width();
       if (current_width <= 480) {

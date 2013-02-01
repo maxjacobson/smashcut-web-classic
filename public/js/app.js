@@ -50,20 +50,23 @@ $(document).ready(function () {
 
     //clear all text from fountain box
     $("#clear").click(function() {
-      var current_text = $("#fountain").val();
-      if (current_text === "") {
-        $("#specify_filename").val("");
-      } else if (current_text == demo) { // eh, you can clear that w/o confirming
+
+      var clear_all = function() {
         $("#fountain").val("").trigger('autosize');
         $("#specify_filename").val("");
+        // $("#load").val("");
+      };
+
+      var current_text = $("#fountain").val();
+      if (current_text === "" || current_text === demo) {
+        clear_all();
       } else {
         var conf = confirm("You sure?");
         if (conf === true) {
-          $("#fountain").val("").trigger('autosize');
-          $("#specify_filename").val("");
-        } else {
+          clear_all();
         }
       }
+
     });
 
     // will submit the form
@@ -104,6 +107,7 @@ $(document).ready(function () {
       } else {
         alert("Bad file extension. Please use .fountain");
       }
+      $("#load").val(""); // unloading the file from the file input, so you can load it again after clearing if you want
     });
   });
 });

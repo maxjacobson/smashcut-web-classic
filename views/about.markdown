@@ -70,12 +70,9 @@ The reason these are the defaults is that I feel like this is what I would want 
 * The front-end stuff is JavaScript/jQuery and SASS/CSS
 * Hosted by [Heroku](http://heroku.com)
 * Logo by [Amber Vittoria](http://ambervittoria.com)
-    * Wiggly animation done by me with help from [jQuery](http://jquery.com)
 * Fonts by [Google Web Fonts](http://google.com/webfonts)
-* Some of the other front end stuff in javascript, including these libraries:
-    * Alerts powered by fabien-d's [Alertify.js](http://github.com/fabien-d/alertify.js)
-    * With form persistence by [Garlic.js](http://garlicjs.org)
-    * Buttons CSS by [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
+* Buttons CSS by [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
+* Textarea autosizing by Jack L. Moore's [jQuery Autosize](http://www.jacklmoore.com/autosize)
 
 ### Privacy [^btw]
 

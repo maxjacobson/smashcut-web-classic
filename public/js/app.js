@@ -2,6 +2,43 @@
 
 $(document).ready(function () {
 
+  var defaults = {
+    file_format: "pdf",
+    comments: "exclude",
+    medium: "film"
+  },
+    options = {},
+    current_url = document.URL;
+
+  if (current_url.match(/\?file_format/)) {
+    var parse_options = current_url.match(/\?file_format=(.+)&comments=(.+)&medium=(.+)$/);
+    options.file_format = parse_options[1];
+    options.comments = parse_options[2];
+    options.medium = parse_options[3];
+  } else {
+    options = defaults;
+  }
+
+  if (options.file_format === "html") {
+    $("#file_format_html").attr("checked", "yes");
+  } else {
+    $("#file_format_pdf").attr("checked", "yes");
+  }
+
+  if (options.comments === "include") {
+    $("#comments_include").attr("checked", "yes");
+  } else {
+    $("#comments_exclude").attr("checked", "yes");
+  }
+
+  if (options.medium === "musical") {
+    $("#medium_musical").attr("checked", "yes");
+  } else if (options.medium === "tv") {
+    $("#medium_tv").attr("checked", "yes");
+  } else {
+    $("#medium_film").attr("checked", "yes");
+  }
+
   // uses a plugin to autosize the textarea as it gets populated
   $("#fountain").autosize({append: "\n"});
 
@@ -114,17 +151,6 @@ $(document).ready(function () {
       $("#load").val(""); // unloading the file from the file input, so you can load it again after clearing if you want
     });
 
-    var defaults = {
-      file_format: "pdf",
-      comments: "exclude",
-      medium: "film"
-    };
-    var options = {
-      file_format: "pdf",
-      comments: "exclude",
-      medium: "film"
-    };
-
     $("input:radio").change(function() {
       var opt = this.name;
       var new_val = this.value;
@@ -137,11 +163,13 @@ $(document).ready(function () {
       }
       console.log(options);
       var url_str = "?file_format="+options.file_format+"&comments="+options.comments+"&medium="+options.medium;
-      var current_url = document.URL;
-      console.log(current_url);
-      var current_state = history.state;
+      if (options === defaults) {
+        // alert("back to defaults");
+        console.log("back to defaults?");
+        console.log("options: " + options);
+        console.log("defaults: " + defaults);
+      }
       history.pushState(options, "updated options", url_str);
-
     });
 
 

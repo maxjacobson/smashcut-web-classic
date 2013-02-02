@@ -91,23 +91,59 @@ $(document).ready(function () {
       var pattern = /(\.fountain$)|(\.fou$)|(\.txt$)|(\.spmd$)|(\.md$)|(\.markdown$)/;
       var reader = new FileReader();
       reader.onload = function(event) {
-        $("#fountain").val(event.target.result).trigger('autosize');
-        $("#specify_filename").val(name.replace(/\..+$/, "")); // removes file extension from filename and puts in the little box... should it?
-      };
-      if (name.match(pattern)) {
         var current_text = $("#fountain").val();
-        if (current_text === "" || current_text == demo) {
-          reader.readAsText(selected_file);
+        var new_text = event.target.result;
+        var load_new_file = function(new_text, name) {
+          $("#fountain").val(new_text).trigger('autosize');
+          $("#specify_filename").val(name.replace(/\..+$/, "")); // removes file extension from filename and puts in the little box... should it?
+        };
+        if (new_text === current_text || current_text === "" || current_text === demo) {
+          load_new_file(new_text, name);
         } else {
           var conf = confirm("This will replace the current text.");
           if (conf === true) {
-            reader.readAsText(selected_file);
+            load_new_file(new_text, name);
           }
         }
+      };
+      if (name.match(pattern)) {
+        reader.readAsText(selected_file);
       } else {
         alert("Bad file extension. Please use .fountain");
       }
       $("#load").val(""); // unloading the file from the file input, so you can load it again after clearing if you want
     });
+
+    var defaults = {
+      file_format: "pdf",
+      comments: "exclude",
+      medium: "film"
+    };
+    var options = {
+      file_format: "pdf",
+      comments: "exclude",
+      medium: "film"
+    };
+
+    $("input:radio").change(function() {
+      var opt = this.name;
+      var new_val = this.value;
+      if (opt === "file_format") {
+        options.file_format = new_val;
+      } else if (opt === "comments") {
+        options.comments = new_val;
+      } else if (opt === "medium") {
+        options.medium = new_val;
+      }
+      console.log(options);
+      var url_str = "?file_format="+options.file_format+"&comments="+options.comments+"&medium="+options.medium;
+      var current_url = document.URL;
+      console.log(current_url);
+      var current_state = history.state;
+      history.pushState(options, "updated options", url_str);
+
+    });
+
+
   });
 });

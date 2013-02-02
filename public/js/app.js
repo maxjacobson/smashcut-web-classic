@@ -10,13 +10,26 @@ $(document).ready(function () {
     options = {},
     current_url = document.URL;
 
-  if (current_url.match(/\?file_format/)) {
-    var parse_options = current_url.match(/\?file_format=(.+)&comments=(.+)&medium=(.+)/);
-    options.file_format = parse_options[1];
-    options.comments = parse_options[2];
-    options.medium = parse_options[3];
+  var format_pattern = /to\=(\w+)/;
+  var comment_pattern = /com\=(\w+)/;
+  var medium_pattern = /med\=(\w+)/;
+
+  if (current_url.match(format_pattern)) {
+    options.file_format = current_url.match(format_pattern)[1];
   } else {
-    options = defaults;
+    options.file_format = defaults.file_format;
+  }
+
+  if (current_url.match(comment_pattern)) {
+    options.comments = current_url.match(comment_pattern)[1];
+  } else {
+    options.comments = defaults.comments;
+  }
+
+  if (current_url.match(medium_pattern)) {
+    options.medium = current_url.match(medium_pattern)[1];
+  } else {
+    options.medium = defaults.medium;
   }
 
   if (options.file_format === "html") {
@@ -161,10 +174,27 @@ $(document).ready(function () {
       } else if (opt === "medium") {
         options.medium = new_val;
       }
-      var url_str = "?file_format="+options.file_format+"&comments="+options.comments+"&medium="+options.medium;
       if (options.file_format === "pdf" && options.comments === "exclude" && options.medium === "film") {
         history.pushState(options, "back to default", "/");
       } else {
+        var url_str = "/?";
+        if (options.file_format !== "pdf") {
+          url_str = url_str + "to=" + options.file_format;
+        }
+        if (options.comments !== "exclude") {
+          if (options.file_format !== "pdf") {
+            url_str = url_str + "&";
+          }
+          url_str = url_str + "com=" + options.comments;
+        }
+        if (options.medium !== "film") {
+          if (options.file_format !== "pdf" || options.comments !== "exclude") {
+            url_str = url_str + "&";
+          }
+          url_str = url_str + "med=" + options.medium;
+        }
+
+        // var url_str = "/?to="+options.file_format+"&com="+options.comments+"&med="+options.medium;
         history.pushState(options, "updated options", url_str);
       }
     });

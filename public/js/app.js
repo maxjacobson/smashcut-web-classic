@@ -11,13 +11,12 @@ $(document).ready(function () {
     current_url = document.URL;
 
   if (current_url.match(/\?file_format/)) {
-    var parse_options = current_url.match(/\?file_format=(.+)&comments=(.+)&medium=(.+)$/);
+    var parse_options = current_url.match(/\?file_format=(.+)&comments=(.+)&medium=(.+)/);
     options.file_format = parse_options[1];
     options.comments = parse_options[2];
     options.medium = parse_options[3];
   } else {
-    // options = defaults;
-    options = $.extend(true, {}, defaults);
+    options = defaults;
   }
 
   if (options.file_format === "html") {
@@ -118,7 +117,7 @@ $(document).ready(function () {
     });
 
     // the actual file input is hidden so this button is
-    //forwarding the click event to its invisible friend
+    // forwarding the click event to its invisible friend
     $("#load_button").on("click", function() {
       $("#load").click();
     });
@@ -162,7 +161,6 @@ $(document).ready(function () {
       } else if (opt === "medium") {
         options.medium = new_val;
       }
-      // console.log(options);
       var url_str = "?file_format="+options.file_format+"&comments="+options.comments+"&medium="+options.medium;
       if (options.file_format === "pdf" && options.comments === "exclude" && options.medium === "film") {
         history.pushState(options, "back to default", "/");

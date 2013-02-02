@@ -50,6 +50,15 @@ h1 {
 h2 {
   font-size: 2em; }
 
+h1, h2, h3, p {
+  margin: 10px 0; }
+
+li {
+  margin-left: 1em; }
+
+.footnotes {
+  border-top: black dotted 1px; }
+
 a {
   color: #4179FF;
   text-decoration: none; }

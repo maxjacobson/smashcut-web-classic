@@ -10,4 +10,3 @@ I keep writing these things before they're ready so i'm gonna stop here for now.
 * part of me still wants to use fountain.js
 * re-add garlic.js if it seems useful
 * http://jakiestfu.github.com/Behave.js/
-* add a thing where when you change the settings, it updates the URL so if you always want to use particular settings you can bookmark that URL. 

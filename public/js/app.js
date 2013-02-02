@@ -193,8 +193,6 @@ $(document).ready(function () {
           }
           url_str = url_str + "med=" + options.medium;
         }
-
-        // var url_str = "/?to="+options.file_format+"&com="+options.comments+"&med="+options.medium;
         history.pushState(options, "updated options", url_str);
       }
     });

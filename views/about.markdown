@@ -62,6 +62,7 @@ The reason these are the defaults is that I feel like this is what I would want 
 * You can optionally specify the filename of the pdf. If you don't, smashcut will pick one for you based on the current date and time (on the web, it'll use new york time) and the screenplay title.
 * also: it's not necessary to include the `.pdf` file extension, it will add that for you.
 * The site is a good way to convert from fountain to pdf when on iOS and probably other mobile devices too. Maybe even on windows. I'm mainly testing on Ubuntu and OS X.
+* You can bookmark your options. Changing the options quietly updates the current URL, and loading to that URL will load your settings
 
 ### About this site
 

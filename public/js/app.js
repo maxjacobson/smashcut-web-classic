@@ -16,7 +16,8 @@ $(document).ready(function () {
     options.comments = parse_options[2];
     options.medium = parse_options[3];
   } else {
-    options = defaults;
+    // options = defaults;
+    options = $.extend(true, {}, defaults);
   }
 
   if (options.file_format === "html") {
@@ -161,15 +162,13 @@ $(document).ready(function () {
       } else if (opt === "medium") {
         options.medium = new_val;
       }
-      console.log(options);
+      // console.log(options);
       var url_str = "?file_format="+options.file_format+"&comments="+options.comments+"&medium="+options.medium;
-      if (options === defaults) {
-        // alert("back to defaults");
-        console.log("back to defaults?");
-        console.log("options: " + options);
-        console.log("defaults: " + defaults);
+      if (options.file_format === "pdf" && options.comments === "exclude" && options.medium === "film") {
+        history.pushState(options, "back to default", "/");
+      } else {
+        history.pushState(options, "updated options", url_str);
       }
-      history.pushState(options, "updated options", url_str);
     });
 
 

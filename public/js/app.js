@@ -11,21 +11,20 @@ $(document).ready(function () {
     current_url = document.URL;
 
   var format_pattern = /to\=(\w+)/;
-  var comment_pattern = /com\=(\w+)/;
-  var medium_pattern = /med\=(\w+)/;
-
   if (current_url.match(format_pattern)) {
     options.file_format = current_url.match(format_pattern)[1];
   } else {
     options.file_format = defaults.file_format;
   }
 
+  var comment_pattern = /com\=(\w+)/;
   if (current_url.match(comment_pattern)) {
     options.comments = current_url.match(comment_pattern)[1];
   } else {
     options.comments = defaults.comments;
   }
 
+  var medium_pattern = /med\=(\w+)/;
   if (current_url.match(medium_pattern)) {
     options.medium = current_url.match(medium_pattern)[1];
   } else {
@@ -52,13 +51,11 @@ $(document).ready(function () {
     $("#medium_film").attr("checked", "yes");
   }
 
-  // uses a plugin to autosize the textarea as it gets populated
+  // uses Jack L. Moore's autosize plugin to autosize the textarea
   $("#fountain").autosize({append: "\n"});
 
-  if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-    // should I detect other stuff?
+  if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) { // should I detect other stuff?
     $("#load_button").remove();
-  } else {
   }
   if ($(document).width() <= 300) {
     $("button").addClass("btn-mini");
@@ -119,16 +116,6 @@ $(document).ready(function () {
 
     });
 
-    // will submit the form
-    $("#smash").click(function () {
-      var current_text = $("#fountain").val();
-      alert("disabled for now");
-      // $("#screenplay_form").submit();
-      // fix this: you can hit enter in the filename box to avoid this logic
-      // you can submit blank pages if you just avoid clicking that button
-      // so bind to the whole submit event somehow http://api.jquery.com/submit/
-    });
-
     // the actual file input is hidden so this button is
     // forwarding the click event to its invisible friend
     $("#load_button").on("click", function() {
@@ -164,6 +151,9 @@ $(document).ready(function () {
       $("#load").val(""); // unloading the file from the file input, so you can load it again after clearing if you want
     });
 
+
+    // updates the URL to reflect the current settings
+    // so they can be bookmarked
     $("input:radio").change(function() {
       var opt = this.name;
       var new_val = this.value;
@@ -195,6 +185,16 @@ $(document).ready(function () {
         }
         history.pushState(options, "updated options", url_str);
       }
+    });
+
+    // will submit the form
+    $("#smash").click(function () {
+      var current_text = $("#fountain").val();
+      alert("disabled for now");
+      // $("#screenplay_form").submit();
+      // fix this: you can hit enter in the filename box to avoid this logic
+      // you can submit blank pages if you just avoid clicking that button
+      // so bind to the whole submit event somehow http://api.jquery.com/submit/
     });
 
 

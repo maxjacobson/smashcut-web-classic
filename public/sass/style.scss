@@ -143,13 +143,18 @@ a {
     list-style-type: none;
   }
   li {
-    margin-top: 5px;
+    // &:nth-child(odd) {
+    // }
+    &:nth-child(even) {
+      background-color: #FDE7FF;
+    }
+    &:hover {
+      background-color: #ACD9B5;
+    }
   }
   input[type=text] {
-    padding: 5px;
-    // width: 300px;
     width: 50%;
-    margin-bottom: 5px;
+    // margin-bottom: 5px;
   }
 }
 

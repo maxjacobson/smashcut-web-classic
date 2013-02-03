@@ -88,12 +88,12 @@ a {
   margin: 10px 0; }
   #options ul {
     list-style-type: none; }
-  #options li {
-    margin-top: 5px; }
+  #options li:nth-child(even) {
+    background-color: #FDE7FF; }
+  #options li:hover {
+    background-color: #ACD9B5; }
   #options input[type=text] {
-    padding: 5px;
-    width: 50%;
-    margin-bottom: 5px; }
+    width: 50%; }
 
 code {
   background-color: yellow;

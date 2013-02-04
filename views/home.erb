@@ -15,20 +15,22 @@
       <h3>Options:</h3>
       <ul>
         <li>
-          <label>Specify filename: <input name="filename" type="text" placeholder="eg, casablanca.pdf (optional)" id="specify_filename"></label>
+          <label><span class="hint hint--top" data-hint="Or just let us come up with something">Specify filename</span> <input name="filename" type="text" placeholder="eg, casablanca.pdf (optional)" id="specify_filename"></label>
+          
         </li>
         <li>Convert to:
-          <label><input type="radio" name="file_format" value="pdf" id="file_format_pdf" /> PDF</label>
-          <label><input type="radio" name="file_format" value="html" id="file_format_html" /> HTML</label>
+          <label><input type="radio" name="file_format" value="pdf" id="file_format_pdf" /> <span class="hint hint--top" data-hint="Make a pdf">PDF</span></label>
+
+          <label><input type="radio" name="file_format" value="html" id="file_format_html" /> <span class="hint hint--top" data-hint="Make an HTML document">HTML</span></label>
         </li>
         <li>Comments:
-          <label><input type="radio" name="comments" value="exclude" id="comments_exclude"/> Exclude</label>
-          <label><input type="radio" name="comments" value="include" id="comments_include" /> Include</label>
+          <label><input type="radio" name="comments" value="exclude" id="comments_exclude"/> <span class="hint hint--top" data-hint="Leave out comments, boneyards, synopses, etc">Exclude</span></label>
+          <label><input type="radio" name="comments" value="include" id="comments_include" /> <span class="hint hint--top" data-hint="Include comments, boneyards, synopses, etc">Include</span></label>
         </li>
         <li>Medium:
-          <label><input type="radio" name="medium" value="film" id="medium_film" /> Film</label>
-          <label><input type="radio" name="medium" value="tv" id="medium_tv" /> Television</label>
-          <label><input type="radio" name="medium" value="musical" id="medium_musical" /> Musical</label>
+          <label><input type="radio" name="medium" value="film" id="medium_film" /> <span class="hint hint--top" data-hint="Follow the conventions for a film screenplay">Film</span></label>
+          <label><input type="radio" name="medium" value="tv" id="medium_tv" /> <span class="hint hint--top" data-hint="Follow the conventions for a TV teleplay">Television</span></label>
+          <label><input type="radio" name="medium" value="musical" id="medium_musical" /> <span class="hint hint--top" data-hint="Follow the conventions for a musical book">Musical</span></label>
         </li>
       </ul>
     </div>

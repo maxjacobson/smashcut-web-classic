@@ -1,6 +1,6 @@
 (a draft written mostly on 2012-12-20)
 
-This might be useful to you if you are a screenwriter who has a screenplay in the [fountain](http://fountain.io) format and would like to make a pdf out of it.
+This might be useful to you if you are a screenwriter who has a screenplay in the [fountain](http://fountain.io) format and would like to make a pdf out of it...
 
 This site is powered by the [smashcut](#) rubygem which I'm still working on and will soon make freely available. With the gem installed on your machine, you can do these conversions from the command line with the command `smashcut <yourscreenplay>.fountain`.
 

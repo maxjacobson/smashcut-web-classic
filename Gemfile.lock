@@ -3,7 +3,7 @@ GEM
   specs:
     Ascii85 (1.0.2)
     daemons (1.1.9)
-    eventmachine (0.12.10)
+    eventmachine (1.2.5)
     fattr (2.2.1)
     hashery (2.0.1)
     highline (1.6.15)
@@ -49,3 +49,6 @@ DEPENDENCIES
   shotgun
   sinatra (= 1.1.0)
   thin
+
+BUNDLED WITH
+   1.16.1

@@ -20,7 +20,7 @@ GEM
     progress_bar (0.4.0)
       highline (~> 1.6.1)
       options (~> 2.3.0)
-    rack (1.6.11)
+    rack (1.6.12)
     rack-flash (0.1.2)
       rack
     ruby-rc4 (0.1.5)
